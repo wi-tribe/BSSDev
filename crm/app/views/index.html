@@ -1,0 +1,32 @@
+<div class="block">
+    <div class="content">
+        <!-- Retards -->
+        #{if roleId == '-1'}
+        <h2 class="title">Access Denied</h2>
+        #{/if}
+        
+        <!-- Staff -->
+        #{elseif roleId == '2'}
+        <h2 class="title">Administrative Panel</h2>
+        #{include 'Application/staff_home.html' /}
+        #{/elseif}
+
+        <!-- Teachers -->
+        #{elseif roleId == '1'}
+        <h2 class="title" >Control Panel</h2>
+        #{include 'Application/teachers_home.html' /}
+        #{/elseif}
+
+        <!-- Students -->
+        #{else}
+        <h2 class="title">Students Dashboard</h2>
+        #{include 'Application/students_home.html' /}
+        #{/else}
+    </div>
+</div>
+
+#{if request.controller != 'Application' }
+    #{include request.controller + '/submenu.html'/}
+#{/if}
+
+#{doLayout /}

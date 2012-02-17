@@ -1,0 +1,303 @@
+#{extends 'main.html' /} #{set title: 'Customer Information ' /} #{set roleId: session.get("userRoleId") /}
+
+<script type="text/javascript" src="@{'/public/javascripts/modalBox/prototype.js'}"></script>
+<script type="text/javascript" src="@{'/public/javascripts/modalBox/scriptaculous.js'}"></script>
+<script type="text/javascript" src="@{'/public/javascripts/modalBox/modalbox.js'}"></script>
+<link rel="stylesheet" href="@{'/public/javascripts/modalBox/modalbox.css'}" type="text/css" media="screen" />
+
+<div class="secondary-navigation">
+    <ul class="wat-cf">
+        <li class="active">#{a @SearchCustomer.details()}Summary#{/a}</li>
+        <li >#{a @SearchCustomer.balances()}Balances#{/a}</li>
+    </ul>
+</div>
+<div class="block" id="course">
+	<div class="content">
+		<div class="inner">
+			<table class="table">
+				<tbody>
+					<tr>
+						<td align="left">
+							<h2 class="title">${title}</h2>
+						</td>
+						<td align="left">
+							<h2 class="title">Account Summary</h2>
+						</td>
+					</tr>
+					<tr>
+						<td width="50%">
+							<blockquote>
+								<strong>Customer Name (Account Name)</strong>:
+								<tt>${customerDetails?.mFirstName} ${customerDetails?.mLastName}</tt>
+							</blockquote>
+						</td>
+						<td width="50%">
+							<blockquote>
+								<strong>Account status</strong>:
+								<tt>${customerDetails?.status}</tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong>Company Name </strong>:
+								<tt>${customerDetails?.mCompany}</tt>
+							</blockquote>
+						</td>
+						<td>
+							<blockquote>
+								<strong>Type of service</strong>:
+								<tt></tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong>Customer ID </strong>:
+								<tt>${customerDetails?.customerNo}</tt>
+							</blockquote>
+						</td>
+						<td>
+							<blockquote>
+								<strong>Account Type</strong>:
+								<tt>${customerDetails?.businessType}</tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong>MAC Address </strong>:
+								<tt>${customerDetails?.macAddress}</tt>
+							</blockquote>
+						</td>
+						<td>
+							<blockquote>
+								<strong>Re-direct Status</strong>:
+								<tt></tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong>Date of birth </strong>:
+								<tt></tt>
+							</blockquote>
+						</td>
+						<td>
+							<blockquote>
+								<strong>Customer Rating</strong>:
+								<tt></tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong>CNIC/Passport # </strong>:
+								<tt>${customerDetails?.CNIC}</tt>
+							</blockquote>
+						</td>
+						<td>
+							<blockquote>
+								<strong>TPIN</strong>:
+								<tt></tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong>wi-tribe email account </strong>:
+								<tt></tt>
+							</blockquote>
+						</td>
+						<td>
+							<blockquote>
+								<strong>Created</strong>:
+								<tt>${customerDetails?.createdDate}</tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong>Personal email ID </strong>:
+								<tt>${customerDetails?.mEmailAddr}</tt>
+							</blockquote>
+						</td>
+						<td>
+							<blockquote>
+								<strong>Last status change</strong>:
+								<tt>${customerDetails?.statusChangeDate}</tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong>Customer address </strong>:
+								<tt>${customerDetails?.mAddress}</tt>
+							</blockquote>
+						</td>
+						<td>
+							<blockquote>
+								<strong>Reason for status change</strong>:
+								<tt>${customerDetails?.statusNotes}</tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong>Additional Contacts: 1 </strong>:
+								<tt>${customerDetails?.mAddress}</tt>
+							</blockquote>
+						</td>
+						<td>
+							<blockquote>
+								<strong>Sales Person ID</strong>:
+								<tt>${customerDetails?.salesPersonId}</tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong>Home telephone number </strong>:
+								<tt>${customerDetails?.mHomePhone}</tt>
+							</blockquote>
+						</td>
+						<td>
+							<blockquote>
+								<strong>Sales Person Name</strong>:
+								<tt></tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong>Mobile Phone </strong>:
+								<tt>${customerDetails?.mMobile}</tt>
+							</blockquote>
+						</td>
+						<td>
+							<blockquote>
+								<strong>Device Type </strong>:
+								<tt>${customerDetails?.deviceType}</tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong></strong>
+								<tt></tt>
+							</blockquote>
+						</td>
+						<td>
+							<blockquote>
+								<strong>Device Serial # </strong>:
+								<tt>${customerDetails?.deviceSerialNumber}</tt>
+								<tt>&nbsp;</tt><tt>&nbsp;</tt>
+                                                                <tt> <a id="DeviceChange" onclick="Modalbox.show(this.href,{title: 'Device Change', width: 600}); return false" href="/SearchCustomer/deviceChange?AccountID=${customerDetails.customerNo}&MAC=${customerDetails.macAddress}"><img src="@{'/public/images/Change.png'}"/></a></tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong></strong>
+								<tt></tt>
+							</blockquote>
+						</td>
+						<td>
+							<blockquote>
+								<strong>Package Plan # </strong>:
+								<tt>${customerDetails?.plan}</tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong></strong>
+								<tt></tt>
+							</blockquote>
+						</td>
+						<td>
+							<blockquote>
+								<strong>Current speed # </strong>:
+								<tt>${customerDetails?.speed}</tt>
+							</blockquote>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<blockquote>
+								<strong></strong>
+								<tt></tt>
+							</blockquote>
+						</td>
+						<td>
+							<blockquote>
+								<strong>Current volume consumed </strong>:
+								<tt>${customerDetails?.volumeConsumed}</tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong></strong>
+								<tt></tt>
+							</blockquote>
+						</td>
+						<td>
+							<blockquote>
+								<strong>% volume consumed </strong>:
+								<tt>${customerDetails?.volumeConsumedPersentage}</tt>
+						
+							</blockquote>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+	<br />
+	<div class="content">
+	<h2 class="title">Last 5 Issues/Tickets</h2>
+		<div class="inner">
+			<table class="table">
+				<tbody>
+					<tr>
+						<th align="left">
+							Ticket ID
+						</th>
+						<th align="left">
+							 Subject
+						</th>
+					</tr>
+					#{list customerDetails.taskDetails, as:'tasks' }
+                    <tr class="${dep_parity}">
+                        <td>
+                                ${tasks?.issueKey}
+                        </td>
+                        <td class="meta">
+                            ${tasks?.issueDesc}
+                        </td>
+                    </tr>
+                    #{/list}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</div>

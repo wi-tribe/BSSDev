@@ -1,0 +1,27 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Application.index
+
+# Login/Logout page
+GET     /login                                  Application.login
+GET     /authenticate                           Application.login #skip direct access
+GET     /logout                                 Application.logout
+POST    /authenticate                           Application.authenticate
+
+# Courses
+GET     /courses                                Courses.index
+GET     /course/{id}                            Courses.course
+GET     /posts/{id}                             SearchCustomer.Devicechange
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}
+*       /{controller}/{action}/{id}             {controller}.{action}
+
+GET     /departments/search                     Departments.add
+POST    /deviceAddorRemove                      SearchCustomer.deviceAddorRemove

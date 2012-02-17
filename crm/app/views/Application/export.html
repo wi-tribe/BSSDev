@@ -1,0 +1,47 @@
+#{set title: 'Assignments' /}
+#{set roleId:session.get("userRoleId") /}
+
+<div id="courses" class="block">
+    <div class="content">
+        <h2 class="title">${title}</h2>
+
+        <table class="table">
+            <tbody>
+                #{if assignments}
+                    <tr>
+                        <th>Description</th>
+                        <th>Deadline</th>
+                        <th>Creation date</th>
+                        <th class="last"> </th>
+                    </tr>
+                    #{list items:assignments, as:'as' }
+                    <tr class="${dep_parity}">
+                        <td>
+                            #{a @Assignments.assignment(as.getId())}
+                                #{if as.problem.length() > 30 }
+                                    ${as.problem.substring(0, 30)}...
+                                #{/if}
+                                #{else}
+                                     ${as.problem}
+                                #{/else}
+                            #{/a}
+                        </td>
+                        <td>
+                            ${as.deadline}
+                        </td>
+                        <td>
+                            ${as.timeStamp}
+                        </td>
+                    </tr>
+                    #{/list}
+                #{/if}
+
+		#{else}
+                    <tr>
+                        <td>No Assignments found.</td>
+                    </tr>
+		#{/else}
+            </tbody>
+        </table>
+    </div>
+</div>

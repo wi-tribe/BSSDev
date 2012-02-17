@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/base.css'}">
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/warehouse.css'}">
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/javascripts/cleditor/jquery.cleditor.css'}">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        <script src="@{'/public/javascripts/jquery-1.4.2.min.js'}" type="text/javascript" charset="utf-8"></script>
+        <script src="@{'/public/javascripts/cleditor/jquery.cleditor.min.js'}" type="text/javascript" charset="utf-8"></script>
+        <script src="@{'/public/javascripts/jquery.sparkline.min.js'}" type="text/javascript" charset="utf-8"></script>
+        <script src="@{'/public/javascripts/behave.js'}" type="text/javascript" charset="utf-8"></script>
+        #{get 'moreScripts' /}
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <h1>
+                    <a href="@{Application.index()}">CRM</a>
+                </h1>
+        	#{if request.controller == 'Application.index()' }
+                    #{include 'user_menu.html' /}
+        	#{/if}
+        	#{else}
+                    #{include '/user_menu.html' /}
+        	#{/else}
+                <div id="main-navigation">    
+                    #{include 'submenu.html' /}
+                </div>
+            </div>
+            <div id="wrapper" class="wat-cf">
+                #{if request.action == 'Application.login'}
+                    #{doLayout /}
+                #{/if}
+                #{else}
+                <div id="main">
+                    #{if flash?.success}
+                    <div class="flash">
+                        <div class="message notice">
+                            <p>${flash.success}</p>
+                        </div>
+                    </div>
+                    #{/if}
+
+                    #{if request.controller != 'Application' || request.action == 'Application.index'  }
+                        #{include 'index.html' /}
+                    #{/if}
+                    #{else}
+                        #{doLayout /}
+                    #{/else}
+                </div>
+                <div id="sidebar">
+                    #{include 'sidebar.html' /}
+                </div>
+                #{/else}
+            </div>
+            #{include 'footer.html' /}
+    </body>
+</html>

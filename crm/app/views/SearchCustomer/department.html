@@ -1,0 +1,14 @@
+#{extends 'main.html' /}
+#{set title: 'Department ' + dep.title /}
+#{set roleId: session.get("userRoleId") /}
+
+<div class="block" id="course">
+<div class="content" >
+    <h2 class="title">${dep.title}</h2>
+    <div class="inner">
+        <blockquote>
+            <strong>Department keyword</strong>: <tt></tt>
+        </blockquote>
+    </div>
+</div>
+</div>

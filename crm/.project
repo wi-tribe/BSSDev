@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Joodle</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jem.workbench.JavaEMFNature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>org.playframework.playclipse.playNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>pdf-0.9</name>
+			<type>2</type>
+			<location>C:/Play/modules/pdf-0.9/app</location>
+		</link>
+		<link>
+			<name>conf/pdf-0.9</name>
+			<type>2</type>
+			<location>C:/Play/modules/pdf-0.9/conf</location>
+		</link>
+	</linkedResources>
+</projectDescription>
