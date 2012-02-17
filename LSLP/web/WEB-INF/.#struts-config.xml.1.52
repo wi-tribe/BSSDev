@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+
+<struts-config>
+    <form-beans>
+    <form-bean name="leadform" type="com.witribe.actionform.LeadEntryForm"/>
+    <form-bean name="loginform" type="com.witribe.actionform.LoginForm"/>
+    <form-bean name="hotspotform" type="com.witribe.actionform.HotspotForm"/>
+    <form-bean name="userregform" type="com.witribe.actionform.UserRegForm"/>
+    <form-bean name="salesform" type="com.witribe.sales.actionform.SalesPersonnelForm"/>
+    <form-bean name="shopsform" type="com.witribe.sales.actionform.ShopDetailsForm"/>
+    <form-bean name="saleshierarchyform" type="com.witribe.sales.actionform.SalesHierarchyForm"/>
+    <form-bean name="shopsaleform" type="com.witribe.sales.actionform.ShopSaleMappingForm"/>
+    <form-bean name="raiserequestform" type="com.witribe.inventory.actionform.RaiseRequestForm"/>
+    <form-bean name="distributeinventoryform" type="com.witribe.inventory.actionform.DistributeInventoryForm"/>
+    <form-bean name="shoptosubshopform" type="com.witribe.sales.actionform.ShopToSubshopMappingForm"/>
+    <form-bean name="channelform" type="com.witribe.sales.actionform.ChannelForm"/>
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+       <forward name="login" path="com.witribe.tiles.login"/>
+       <forward name="error" path="com.witribe.tiles.error"/>
+    </global-forwards>
+
+    <action-mappings>
+          <action path="/Home" name="leadform" type="com.witribe.action.HomeAction" scope="request" validate="false">
+              <forward name="login" path="com.witribe.tiles.login"/>
+          </action>
+          <action path="/ForgotPassword" name="loginform" type="com.witribe.action.ForgotPasswordAction" scope="request" validate="false">
+              <forward name="forgotpwd" path="com.witribe.tiles.forgotpwd"></forward>
+          </action>
+          
+          <action path="/SubmitForgotPwd" name="loginform" type="com.witribe.action.SubmitForgotPasswordAction" scope="request" validate="false">
+              <forward name="success" path="com.witribe.tiles.pwddatasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.Pwdfailure"></forward>
+          </action>
+           <action path="/AjaxAction" type="com.witribe.action.AjaxAction" scope="request" validate="false">
+           </action>
+           <action path="/Logout" type="com.witribe.action.LogoutAction" scope="request" validate="false">
+              <forward name="login" path="com.witribe.tiles.login"/>
+          </action>
+         <action path="/Login" name="loginform" type="com.witribe.action.LoginAction" scope="request" validate="false">
+            <forward name="success" path="/ViewSales.do?viewProfile=true"></forward>
+            <forward name="successAdmin" path="/ViewLead.do"></forward>
+            <forward name="successCsr" path="/ViewSales.do?viewProfile=true"></forward>
+            <forward name="failure" path="com.witribe.tiles.login"></forward>
+          </action>
+          <action path="/CreateLead" name="leadform" type="com.witribe.action.CreateLeadAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.creatlead"></forward>
+            <forward name="failure" path="com.witribe.tiles.login"></forward>
+          </action>
+          <action path="/OnlineReg" name="leadform" type="com.witribe.action.OnlineRegAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.onlinecreatlead"></forward>
+            <forward name="saved" path="com.witribe.tiles.onlinedatasaved"></forward>   
+            <forward name="duplicate" path="com.witribe.tiles.creatlead"></forward>
+           </action>
+          <action path="/CreateSale" name="salesform" type="com.witribe.sales.action.CreateSaleAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.createsale"></forward>
+            <forward name="failure" path="com.witribe.tiles.login"></forward>
+          </action>
+          
+           <action path="/ModifyChannel" name="channelform" type="com.witribe.sales.action.ModifyChaneelTypeAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.modifychannel"></forward>
+            
+          </action>
+          
+          <action path="/SubmitChannelType" name="channelform" type="com.witribe.sales.action.SubmitChannelTypeAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+            
+          </action>
+          <action path="/CreateShop" name="shopsform" type="com.witribe.sales.action.CreateShopsAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.createshop"></forward>
+            <forward name="failure" path="com.witribe.tiles.login"></forward>
+          </action>
+        <action path="/Registerlead" name="leadform" type="com.witribe.action.SubmitLeadAction" scope="request" input="/RegistrationForm.jsp" validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+            <forward name="duplicate" path="com.witribe.tiles.creatlead"></forward>
+        </action>       
+        <action path="/SalesPersonnel" name="salesform" type="com.witribe.sales.action.SalesPersonnelAction" scope="request" input="/RegistrationForm.jsp" validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="duplicate" path="com.witribe.tiles.createsale"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action>
+        <action path="/ShowRsmToCity" name="salesform" type="com.witribe.sales.action.RsmCityAction" scope="request"  validate="false">
+            <forward name="success" path="com.witribe.tiles.showrsmtocity"></forward>
+        </action>
+         <action path="/AddRsmToCity" name="salesform" type="com.witribe.sales.action.RsmCityAction" scope="request"  validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="duplicate" path="/ShowRsmToCity.do"></forward>
+        </action>
+        <action path="/ShowTlZone" name="salesform" type="com.witribe.sales.action.TlZoneAction" scope="request"  validate="false">
+            <forward name="success" path="com.witribe.tiles.showtlzone"></forward>
+        </action>
+         <action path="/AddTlZone" name="salesform" type="com.witribe.sales.action.TlZoneAction" scope="request"  validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="duplicate" path="/ShowTlZone.do"></forward>
+        </action>
+        <action path="/ShopDetails" name="shopsform" type="com.witribe.sales.action.ShopDetailsAction" scope="request" input="/RegistrationForm.jsp" validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action>
+        <action path="/ViewLead" name="leadform" type="com.witribe.action.ViewLeadAction" scope="request" validate="false">
+            <forward name="showlead" path="com.witribe.tiles.showlead"></forward>
+            <forward name="viewleads" path="com.witribe.tiles.viewleads"></forward>
+            <forward name="viewcse" path="com.witribe.tiles.viewcse"></forward>
+        </action>
+        <action path="/LeadAccount" name="leadform" type="com.witribe.action.ViewLeadAccountAction" scope="request" validate="false">
+            <forward name="showlead" path="com.witribe.tiles.showlead"></forward>
+            <forward name="viewaccountleads" path="com.witribe.tiles.viewleadaccounts"></forward>
+            <forward name="viewcse" path="com.witribe.tiles.viewcse"></forward>
+        </action>
+        <action path="/SearchLead" name="leadform" type="com.witribe.action.ViewSearchLeadAction" scope="request" validate="false">
+            <forward name="viewaccountleads" path="com.witribe.tiles.viewsearchleads"></forward>
+        </action>
+        
+        <!--<action path="/SearchByLead" name="leadform" type="com.witribe.action.SearchByLeadAction" scope="request" validate="false">
+            <forward name="viewaccountleads" path="com.witribe.tiles.viewsearchleads"></forward>
+        </action>-->
+        <action path="/AssignCSE" name="leadform" type="com.witribe.action.AssignCSEAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+        </action>
+        
+        <action path="/Search" name="leadform" type="com.witribe.action.SearchAction" scope="request" validate="false">
+            <forward name="search" path="com.witribe.tiles.searchlead"></forward>
+            <forward name="failure" path="com.witribe.tiles.login"></forward>
+        </action>
+        
+        <action path="/ViewSales" name="salesform" type="com.witribe.sales.action.ViewSalesAction" scope="request" validate="false">
+            <forward name="showsale" path="com.witribe.tiles.showsale"></forward>
+            <forward name="viewsales" path="com.witribe.tiles.viewsales"></forward>
+            <forward name="viewProfile" path="com.witribe.tiles.viewProfile"></forward>
+        </action>
+	<action path="/ModifySalesPersonnel" name="salesform" type="com.witribe.sales.action.SalesDataModifyAction" scope="request"  validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action>  
+        <action path="/DeleteShop" name="shopsform" type="com.witribe.sales.action.ShopDataDeleteAction" scope="request"  validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action>
+        <action path="/ModifyShop" name="shopsform" type="com.witribe.sales.action.ShopDataModifyAction" scope="request"  validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action>  
+        <action path="/DeleteSalesPersonnel" name="salesform" type="com.witribe.sales.action.SalesDataDeleteAction" scope="request"  validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action>
+        <action path="/ViewShops" name="shopsform" type="com.witribe.sales.action.ViewShopsAction" scope="request" validate="false">
+             <forward name="showshop" path="com.witribe.tiles.showshop"></forward>
+	     <forward name="viewshops" path="com.witribe.tiles.viewshops"></forward>
+        </action>
+        <action path="/ViewShop" name="shopsform" type="com.witribe.sales.action.EachShopViewAction" scope="request" validate="false">
+             <forward name="success" path="com.witribe.tiles.showshop"></forward>
+        </action>
+        <action path="/KiosksToShop" name="shopsform" type="com.witribe.sales.action.KiosksToShopsAction" scope="request" validate="false">
+             <forward name="kiosksToShop" path="com.witribe.tiles.kiosksToShop"></forward>
+        </action>
+        <action path="/ShopSaleMap" name="shopsaleform" type="com.witribe.sales.action.ShopSalesMappingAction" scope="request" validate="false">
+             <forward name="shoptosales" path="com.witribe.tiles.shopsalemap"></forward>
+        </action>
+         <action path="/AssignShopToSale" name="shopsaleform" type="com.witribe.sales.action.AssignShopToSaleAction" scope="request" validate="false">
+             <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+        </action>
+        <action path="/ViewShopToSale" name="shopsaleform" type="com.witribe.sales.action.ViewShopToSaleAction" scope="request" validate="false">
+             <forward name="success" path="com.witribe.tiles.viewshoptosale"></forward>
+        </action>
+        <action path="/DeleteShopToSales" name="shopsaleform" type="com.witribe.sales.action.DeleteShopToSaleAction" scope="request" validate="false">
+             <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+             <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action>
+        <action path="/ModifyShopToSales" name="shopsaleform" type="com.witribe.sales.action.ModifyShopToSaleAction" scope="request" validate="false">
+             <forward name="success" path="com.witribe.tiles.editshoptosales"></forward>
+             <forward name="save" path="com.witribe.tiles.datasaved"></forward>
+             <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action>   
+        <action path="/SalesHirarchy" name="saleshierarchyform" type="com.witribe.sales.action.SalesHirarchyAction" scope="request" validate="false">
+             <forward name="success" path="com.witribe.tiles.saleshirarchy"></forward>
+        </action>
+        <action path="/ViewSalesHierarchy" name="saleshierarchyform" type="com.witribe.sales.action.ViewSalesHierarchyAction" scope="request" validate="false">
+             <forward name="success" path="com.witribe.tiles.viewsaleshierarchy"></forward>
+        </action>
+        
+        <action path="/ViewShopsHierarchy" name="shopsform" type="com.witribe.sales.action.ViewShopsHierarchyAction" scope="request" validate="false">
+             <forward name="success" path="com.witribe.tiles.viewshopshierarchy"></forward>
+        </action>
+        <action path="/DeleteSalesHierarchy" name="saleshierarchyform" type="com.witribe.sales.action.DeleteSalesHierarchyAction" scope="request" validate="false">
+             <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+        </action>
+        
+        <action path="/DeleteShopsHierarchy" name="shopsform" type="com.witribe.sales.action.DeleteShopHierarchyAction" scope="request" validate="false">
+             <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+        </action>
+        <action path="/ModifySalesHierarchy" name="saleshierarchyform" type="com.witribe.sales.action.ModifySalesHierarchyAction" scope="request" validate="false">
+             <forward name="success" path="com.witribe.tiles.editsaleshierarchy"></forward>
+        </action>        
+        <action path="/SalesHierarchyDetails" name="saleshierarchyform" type="com.witribe.sales.action.SalesHierarchyDetailsAction" scope="request" validate="false">
+             <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+        </action>
+        <action path="/UpdateSalesHierarchy" name="saleshierarchyform" type="com.witribe.sales.action.UpdateSalesHierarchyAction" scope="request" validate="false">
+             <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+             <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action> 
+        <action path="/ShopZoneAction" name="shopsform" type="com.witribe.sales.action.ShopZoneAction" scope="request" validate="false">
+             <forward name="success" path="com.witribe.tiles.showshopzone"></forward>
+             <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action> 
+        <action path="/AddZonetoShop" name="shopsform" type="com.witribe.sales.action.ShopZoneAction" scope="request" validate="false">
+             <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+             <forward name="failure" path="com.witribe.tiles.failure"></forward>
+             <forward name="duplicate" path="com.witribe.tiles.failure"></forward>
+        </action>   
+        <action path="/ModifyShopHierarchy" name="shopsform" type="com.witribe.sales.action.ModifyShopHierarchyAction" scope="request" validate="false">
+             <forward name="EditShopHierarchy" path="com.witribe.tiles.editshophierarchy"></forward>
+        </action> 
+        <action path="/UpdateShopHierarchy" name="shopsform" type="com.witribe.sales.action.UpdateShopHierarchyAction" scope="request" validate="false">
+             <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+             <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action> 
+        <action path="/GetReason" name="leadform" type="com.witribe.action.GetReasonAction" scope="request"  validate="false">
+            <forward name="success" path="com.witribe.tiles.getreason"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action>
+        <action path="/GetJobStatus" name="leadform" type="com.witribe.action.GetJobStatusAction" scope="request"  validate="false">
+            <forward name="success" path="com.witribe.tiles.getjobstatus"></forward>
+         </action>
+         <action path="/UpdateStatus" name="leadform" type="com.witribe.action.UpdateJobStatusAction" scope="request" validate="false">
+           <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+        </action>
+        <action path="/ReAssignJob" name="leadform" type="com.witribe.action.ReAssignJobAction" scope="request" validate="false">
+           <forward name="viewassignedleads" path="com.witribe.tiles.viewassignedleads"></forward>
+           <forward name="viewcse" path="com.witribe.tiles.viewcse"></forward>
+        </action>
+        <action path="/GetMore" name="leadform" type="com.witribe.action.GetMoreAction" scope="request" input="/RegistrationForm.jsp" validate="false">
+            <forward name="success" path="com.witribe.tiles.getmore"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action>
+        <action path="/RegisterProspect" name="leadform" type="com.witribe.action.ConvertProspectAction" scope="request" input="/RegistrationForm.jsp" validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action>
+        <action path="/UserDataSave" name="userregform" type="com.witribe.action.UserDataModifyAction" scope="request" input="/RegistrationForm.jsp" validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action>
+        <action path="/RegisterAccount" name="leadform" type="com.witribe.action.ConvertAccountAction" scope="request" input="/RegistrationForm.jsp" validate="false">
+            <forward name="success" path="com.witribe.tiles.accountcreated"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action>
+        <action path="/Hotspot" name="hotspotform" type="com.witribe.action.HotspotAction" scope="request" validate="false">
+              <forward name="hotspot" path="com.witribe.tiles.hotspot"/>
+          </action>
+        <action path="/SubmitHotspot" name="hotspotform" type="com.witribe.action.SubmitHotspotAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+        </action>
+	<action path="/Prospect" name="leadform" type="com.witribe.action.ViewProspectAction" scope="request" validate="false">
+            <forward name="viewprospects" path="com.witribe.tiles.viewprospects"></forward>
+        </action>
+        <action path="/Page" name="leadform" type="com.witribe.action.PageAction" scope="request" validate="false">
+            <forward name="nextviewleads" path="com.witribe.tiles.viewleads"></forward>
+        </action>
+        <!--<action path="/SalesPage" name="salesform" type="com.witribe.sales.action.SalesPageAction" scope="request" validate="false">
+            <forward name="nextviewsales" path="com.witribe.tiles.viewsales"></forward>
+        </action>-->
+        <action path="/UserPage" name="userregform" type="com.witribe.action.UserPageAction" scope="request" validate="false">
+            <forward name="nextviewusers" path="com.witribe.tiles.viewusers"></forward>
+        </action>
+        
+        <action path="/ProspectPage" name="leadform" type="com.witribe.action.PageProspectAction" scope="request" validate="false">
+            <forward name="viewpageprospects" path="com.witribe.tiles.viewprospects"></forward>
+        </action>
+         <action path="/AddUser" name="userregform" type="com.witribe.action.AddUserAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.adduser"></forward>
+         </action>
+         <action path="/RegUser" name="userregform" type="com.witribe.action.RegUserAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.usercreated"></forward>
+            <forward name="adduser" path="com.witribe.tiles.adduser"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+         </action>
+         <action path="/ViewUsers" name="userregform" type="com.witribe.action.ViewUsersAction" scope="request" validate="false">
+            <forward name="showuser" path="com.witribe.tiles.showuser"></forward>
+            <forward name="viewusers" path="com.witribe.tiles.viewusers"></forward>
+         </action>
+         <action path="/RaiseRequest" name="raiserequestform" type="com.witribe.inventory.action.RaiseRequestAction" scope="request" validate="false">
+            <forward name="raiserequest" path="com.witribe.tiles.raiserequest"/>
+            <forward name="raiserequest2" path="com.witribe.tiles.raiserequest2"/>
+            <forward name="raiserequest3" path="com.witribe.tiles.raiserequest3"/>    
+               
+         </action>
+         <action path="/SubmitRequest" name="raiserequestform" type="com.witribe.inventory.action.SubmitRaiseRequestAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+           
+         </action>
+         <action path="/ViewRequestStatus" name="raiserequestform" type="com.witribe.inventory.action.ViewRequestStatusAction" scope="request" validate="false">
+            <forward name="viewrequeststatus" path="com.witribe.tiles.viewrequest"></forward>
+         </action>
+         <action path="/DistributeInventory" name="distributeinventoryform" type="com.witribe.inventory.action.DistributeInventoryAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.distributeinventory"></forward>
+          </action>
+          <action path="/CSETransfer" name="raiserequestform" type="com.witribe.inventory.action.CSETransferAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.CSETransfer"></forward>
+          </action>
+          <action path="/CSETransferUpdate" name="raiserequestform" type="com.witribe.inventory.action.CSETransferUpdateAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.CSETransferUpdate"></forward>
+          </action>
+         <action path="/SubmitDistributeInventory" name="distributeinventoryform" type="com.witribe.inventory.action.SubmitDistributeInventoryAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+           
+         </action>
+         <action path="/ChangeStatus" name="distributeinventoryform" type="com.witribe.inventory.action.ChangeStatusAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.changestatus"></forward>
+           
+         </action>
+         
+         <action path="/InvList" name="distributeinventoryform" type="com.witribe.inventory.action.InventoryListAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.InvList"></forward>
+           
+         </action>
+        <!-- <action path="/ViewInvList" name="distributeinventoryform" type="com.witribe.inventory.action.ViewInvListAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.InvList"></forward>
+           
+         </action>-->
+         <action path="/SubmitChangeStatus" name="distributeinventoryform" type="com.witribe.inventory.action.SubmitChangeStatusAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+           
+         </action>
+         <action path="/SearchInv" name="distributeinventoryform" type="com.witribe.inventory.action.SearchInventoryAction" scope="request" validate="false">
+            <forward name="searchinv" path="com.witribe.tiles.searchinv"></forward>
+          </action>
+          <action path="/SearchInvList" name="distributeinventoryform" type="com.witribe.inventory.action.SearchInventoryListAction" scope="request" validate="false">
+            <forward name="Viewinv" path="com.witribe.tiles.viewinv"></forward>
+          </action>
+         <action path="/SumbitReturnReq" name="raiserequestform" type="com.witribe.inventory.action.SubmitReturnReqAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+           
+         </action>
+         <action path="/SumbitTransReq" name="raiserequestform" type="com.witribe.inventory.action.SubmitTransReqAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+           
+         </action>
+         <action path="/SumbitSubShop" name="shoptosubshopform" type="com.witribe.sales.action.SubmitKiosksToShopAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.datasaved"></forward>
+            <forward name="failure" path="com.witribe.tiles.failure"></forward>
+           
+         </action>
+         <action path="/ViewLocation" name="salesform" type="com.witribe.sales.action.ViewSalesLocationAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.viewsaleslocation"></forward>
+             <forward name="deletesuccess" path="com.witribe.tiles.datasaved"></forward>                 
+         </action>
+         <action path="/CoverageCheck" name="salesform" type="com.witribe.action.CoverageCheckAction" scope="request" validate="false">
+            <forward name="success" path="com.witribe.tiles.coveragecheck"></forward>                           
+         </action>
+         
+         
+    </action-mappings> 
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com.witribe.properties.ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>

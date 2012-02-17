@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Edited by XMLSpy® -->
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:template match="/">
+        <html>
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+                <title>Receipt</title>
+                <link href="css/style.css" rel="stylesheet" type="text/css" />
+                <style type="text/css">
+                    <!--
+#Layer1 {
+	position:absolute;
+	width:250px;
+	height:31px;
+	z-index:1;
+	left: 280px;
+	top: 1429px;
+}
+#Layer2 {
+	position:absolute;
+	width:227px;
+	height:27px;
+	z-index:1;
+	left: 249px;
+	top: 1481px;
+}
+                    -->
+                </style>
+                
+
+                
+            </head>
+            
+            <body>
+                <blockquote>
+                    
+                    
+                    
+                    
+                    
+                    <form id="form1" name="form1" method="post" action="" >
+                        <table width="946" border="0" align="center" cellpadding="0" cellspacing="0">
+                            
+                            <tr>
+                                <td colspan="2" align="right" valign="top">
+                                    
+                                    <table width="869" align="center" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td width="902" colspan="2" align="center"><span class="heading-fom"><img src="http://myaccount.wi-tribe.pk/src/images/email/header-letter.jpg" width="925" height="134" border="0" alt=""/></span></td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td width="669" valign="top"></td>
+                                <td width="267" valign="top"><br />
+                                <img src="http://myaccount.wi-tribe.pk/src/images/email/wi-tribe.gif" width="260" height="100" /></td>
+                            </tr>
+                            
+                            <tr>
+                                <td colspan="2" valign="top">
+                                    
+                                    <table width="916" align="center" border="0">
+                                        <tr>
+                                            <td colspan="2" align="center" class="heading">Receipt</td>
+                                        </tr>
+                                        <tr>
+                                            <td >Serial No:</td>
+                                            <td width="100" >  <label>
+								 <xsl:value-of select="flist/ITEM_NO"/>
+							    </label>
+                                                   
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date:&#160;&#160;<span class="grey">DD&#160;/&#160;MM&#160;/&#160;YYYY</span></td>
+                                            <td width="200"><label>
+								 <xsl:value-of select="flist/Format_Create_Date"/>
+							    </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="141">Customer ID:</td>
+                                            <td width="763"><label>
+								 <xsl:value-of select="flist/ACCOUNT_NO"/>
+							    </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Customer Name:</td>
+                                            <td width="763"><label>
+								 <xsl:value-of select="flist/NAME"/>
+							    </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Invoice Reference:</td>
+                                            <td><label>
+								 <xsl:value-of select="flist/ITEM_NAME"/>
+							    </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Payment Mode:</td>
+                                            <td><label>
+								 <xsl:value-of select="flist/TITLE"/>
+							    </label></td>
+                                        </tr>
+                                        
+                                        
+                                        
+                                        <tr>
+                                            <td height="122" colspan="2"><table width="806">
+                                                    <!--   <tr>
+                <td width="136">Instrument Number</td>
+                <td width="217"><input name="textfield656" type="text" class="input" /></td>
+                <td width="87"> </td>
+                <td width="147">Instrument Title</td>
+                <td width="31"> </td>
+                <td width="148"><input name="textfield6524" type="text" class="input" /></td>
+              </tr>
+              
+              <tr>
+                <td>Bank Name </td>
+                <td><input name="textfield65" type="text" class="input" /></td>
+                <td> </td>
+                <td>Branch</td>
+                <td> </td>
+                <td><input name="textfield66" type="text" class="input" /></td>
+              </tr>
+              <tr>
+                <td>City</td>
+                <td><input name="textfield67" type="text" class="input" /></td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+              </tr>-->
+                                                    <tr>
+                                                        <td> </td>
+                                                        <td> </td>
+                                                        <td> </td>
+                                                        <td> </td>
+                                                        <td> </td>
+                                                        <td> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Batch ID:</td>
+                                                        <td><label>
+								 <xsl:value-of select="flist/TRANS_ID"/>
+							    </label></td>
+                                                        <td> </td>
+                                                        <td>Region ID:</td>
+                                                        <td> </td>
+                                                        <td><label>
+								 <xsl:value-of select="flist/CITY"/>
+							    </label></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sales Shop ID:</td>
+                                                        <td><label>
+								 <xsl:value-of select="flist/AAC_ACCESS"/>
+							    </label></td>
+                                                        <td> </td>
+                                                        <td>Agent ID:</td>
+                                                        <td> </td>
+                                                        <td><label>
+								 <xsl:value-of select="flist/ACCESS_CODE1"/>
+							    </label></td>
+                                                    </tr>
+                                                    
+                                                    <tr>
+                                                        <td>Payment Amount:</td>
+                                                        <td><label>
+								 <xsl:value-of select="flist/AMOUNT"/>
+							    </label></td>
+                                                        <td> </td>
+                                                        <td>(in words)</td>
+							<td></td>
+                                                        <td><label>
+								 <xsl:value-of select="flist/DESCR"/>
+							    </label>
+			  
+						       </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="6"> </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="6">*This is a system generated receipt and does not require any signatures </td>
+                                                    </tr>
+                                            </table>              </td>
+                                        </tr>
+                                        
+                                        
+                                    </table>
+                                <br /></td>
+                            </tr>       
+                            <tr>
+                                <td colspan="2">        </td>
+                            </tr>
+                            
+                            
+                            
+                            <tr>
+                                <td colspan="2" align="center"><img src="http://myaccount.wi-tribe.pk/src/images/email/footer.jpg" width="906" height="51" /></td>
+                            </tr>
+                        </table>
+                    </form>
+                    
+                    
+                    
+                    
+                </blockquote>
+                <script>
+                    setValue();
+                </script>
+            </body>
+        </html>
+        
+    </xsl:template>
+</xsl:stylesheet>

@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+
+<tiles-definitions>
+
+    <!-- sample tiles definitions
+    <definition name=".mainLayout" path="/common/layouts/classicLayout.jsp">
+        <put name="title"  value="Sample Page Title" />
+        <put name="header" value="/common/header.jsp" />
+        <put name="menu"   value=".mainMenu" />
+        <put name="footer" value="/common/footer.jsp" />
+        <put name="body"   value=".portal.body" />
+    </definition>
+
+    <definition name=".mainMenu" path="/common/layouts/vboxLayout.jsp" >
+        <putList name="list" >
+            <add value=".menu.links" />
+            <add value=".menu.taglib.references" />
+            <add value=".menu.printer.friendly" />
+            <add value=".menu.old.documents" />
+      </putList>
+    </definition>
+
+    <definition name="aPage" extends=".mainLayout">
+        <put name="title"  value="Another Title" />
+        <put name="body"   value=".aPage.body" />
+    </definition>
+
+    end samples 
+
+    <definition name="${YOUR_DEFINITION_HERE}">
+    </definition>-->
+    
+   
+    <definition name="com.witribe.tiles.defaultlayout" path="/DefaultLayout.jsp">
+        <put name="title"    type="string"   value="wi-tribe Pakistan limited :. A premium wireless broadband services provider in Pakistan"/>
+    	<put name="clientcode"       value="./includes/ClientCode.jsp"/>
+        <put name="header"       value="./includes/Header.jsp"/>
+        <put name="leftmenu"         value="./includes/LeftsideMenu.jsp"/>
+        <put name="body" value="./includes/Body.jsp"/>
+        <put name="footer"         value="./includes/Footer.html"/>
+        
+    </definition>
+
+    <definition name="com.witribe.tiles.login" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Login"/>
+	<put name="header"         value="./includes/HeaderLogin.jsp"/>
+        <put name="leftmenu"         value="./includes/LeftsideMenuLogin.jsp"/>
+        <put name="body"         value="/Login.jsp" />
+    </definition>
+    
+    <definition name="com.witribe.tiles.Pwdfailure" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Forgot Password Failed"/>
+	<put name="header"         value="./includes/HeaderLogin.jsp"/>
+        <put name="leftmenu"         value="./includes/LeftsideMenuLogin.jsp"/>
+        <put name="body"         value="/ForgotPassword.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.forgotpwd" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Forgot Password"/>
+	<put name="header"         value="./includes/HeaderLogin.jsp"/>
+        <put name="leftmenu"         value="./includes/LeftsideMenuLogin.jsp"/>
+        <put name="body"         value="/ForgotPassword.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.pwddatasaved" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Forgot Password Failed"/>
+	<put name="header"         value="./includes/HeaderLogin.jsp"/>
+        <put name="leftmenu"         value="./includes/LeftsideMenuLogin.jsp"/>
+        <put name="body"         value="/ForgotPassword.jsp" />
+    </definition>
+    
+    <definition name="com.witribe.tiles.hotspot" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Hotspot"/>
+        <put name="leftmenu"    value="./includes/LeftsideMenuLogin.jsp"/>
+        <put name="body"        value="/HotSpot.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.creatlead" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Create Lead"/>
+        <put name="body"         value="/RegistrationForm.jsp" />
+    </definition>    
+    <definition name="com.witribe.tiles.onlinecreatlead" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Create Lead"/>
+        <put name="leftmenu"    value="./includes/LeftsideMenuLogin.jsp"/>
+        <put name="body"         value="/OnlineReg.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.createsale" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Create Lead"/>
+        <put name="body"         value="/SalesPersonnelDetails.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.modifychannel" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Create Lead"/>
+        <put name="body"         value="/ModifyChannelType.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.createshop" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Create Lead"/>
+        <put name="body"         value="/ShopDetails.jsp" />
+    </definition>
+    
+     <definition name="com.witribe.tiles.loginfailed" extends="com.witribe.tiles.defaultlayout">
+         <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Login Failed"/>
+         <put name="leftmenu"         value="./includes/LeftsideMenuLogin.jsp"/>
+         <put name="body"         value="/Login.jsp" />
+    </definition>
+     <definition name="com.witribe.tiles.datasaved" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Data saved"/>      
+        <put name="body"         value="/DataSave.jsp" />
+    </definition>
+     <definition name="com.witribe.tiles.hotspotdatasaved" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Data saved"/>
+        <put name="leftmenu"         value="./includes/LeftsideMenuLogin.jsp"/>
+        <put name="body"         value="/DataSave.jsp" />
+    </definition>
+    
+    <definition name="com.witribe.tiles.CSETransferUpdate" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Data saved"/>      
+        <put name="body"         value="/DataSave.jsp" />
+    </definition>
+    
+    
+    <definition name="com.witribe.tiles.InvList" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal View Inventories"/>      
+        <put name="body"         value="/InventoryList.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.onlinedatasaved" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Data saved"/>
+        <put name="leftmenu"         value="./includes/LeftsideMenuLogin.jsp"/>
+        <put name="body"         value="/OnlineDataSave.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.accountcreated" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Account Created Successfully saved"/>      
+        <put name="body"         value="/AccountCreated.jsp" />
+    </definition>
+   <definition name="com.witribe.tiles.error" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Error"/>      
+        <put name="body"         value="/Error.jsp" />
+   </definition>
+
+    <definition name="com.witribe.tiles.failure" extends="com.witribe.tiles.defaultlayout">
+       <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Failed "/>      
+       <put name="body"         value="/Failure.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.hotspotfailure" extends="com.witribe.tiles.defaultlayout">
+       <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Failed "/>   
+       <put name="leftmenu"    value="./includes/LeftsideMenuLogin.jsp"/>
+       <put name="body"         value="/Failure.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.viewleads" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal View Leads"/>
+        <put name="body"         value="/ViewLeadDetails.jsp" />
+    </definition>
+     <definition name="com.witribe.tiles.viewleadaccounts" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal View Leads"/>
+        <put name="body"         value="/ViewLeadStatus.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.viewsearchleads" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal View Leads"/>
+        <put name="body"         value="/SearchLead.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.viewassignedleads" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal View Assigned Leads"/>
+        <put name="body"         value="/ViewAssignedLeads.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.viewusers" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal View Leads"/>
+        <put name="body"         value="/ViewUserDetails.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.showlead" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Show Lead"/>        
+        <put name="body"         value="/ShowLead.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.viewcse" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Assign"/>
+        <put name="body"         value="/ViewCSE.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.showsale" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Show Lead"/>
+        <put name="body"         value="/ShowSales.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.showrsmtocity" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Add City"/>
+        <put name="body"         value="/AddLocforSales.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.showtlzone" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Add Zone"/>
+        <put name="body"         value="/ShowTlZone.jsp" />
+    </definition>
+     <definition name="com.witribe.tiles.viewsales" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Show Lead"/>
+        <put name="body"         value="/ViewSalesDetails.jsp" />
+    </definition>
+     <definition name="com.witribe.tiles.inactivatecse" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Inactivate Cse"/>
+        <put name="body"         value="/InactivateCse.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.viewProfile" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal View/Update Profile"/>
+        <put name="body"         value="/ViewProfile.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.showshop" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Show Lead"/>
+        <put name="body"         value="/ShowShop.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.shopsalemap" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Show Lead"/>
+        <put name="body"         value="/ShopSaleMapping.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.saleshirarchy" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Show Lead"/>
+        <put name="body"         value="/SalesHirarchy.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.viewsaleshierarchy" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Show Lead"/>
+        <put name="body"         value="/ViewSalesHierarchy.jsp" />
+    </definition>    
+    <definition name="com.witribe.tiles.editsaleshierarchy" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Show Lead"/>
+        <put name="body"         value="/EditSalesHierarchy.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.viewshops" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Show Lead"/>
+        <put name="body"         value="/ViewShopDetails.jsp" />
+    </definition>
+     <definition name="com.witribe.tiles.shopstatus" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Change Shop Status"/>
+        <put name="body"         value="/ChangeShopStatus.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.showshopzone" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Show Lead"/>
+        <put name="body"         value="/ShowShoptoZone.jsp" />
+    </definition>    
+    <definition name="com.witribe.tiles.showuser" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Show Lead"/>
+        <put name="body"         value="/ModifyUser.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.getreason" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Enter Reason"/>
+        <put name="body"         value="/UpdateJobStatus.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.getjobstatus" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Update Job Status"/>
+        <put name="body"         value="/UpdateJobStatus.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.searchlead" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Search Lead"/>
+        <put name="body"         value="/SearchLead.jsp" />
+    </definition>
+         <definition name="com.witribe.tiles.getmore" path="/DefaultLayout.jsp">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Enter More Info"/>
+        <put name="clientcode"       value="./includes/ClientCode.jsp"/>
+        <put name="header"         value="./includes/HeaderwithBack.jsp"/>
+        <put name="leftmenu"         value="./includes/LeftsideMenu.jsp"/>
+        <put name="body"         value="/AccountDetils.jsp" />
+        <put name="footer"         value="./includes/Footer.html"/>  
+        
+    </definition>
+    <definition name="com.witribe.tiles.viewprospects" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Prospect Details"/>
+        <put name="body"         value="/Prospect.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.adduser" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Create User"/>
+    <put name="body"         value="/RegisterUser.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.usercreated" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. User Created"/>
+        <put name="body"         value="/UserCreated.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.duplicate" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. User already Created"/>
+        <put name="body"         value="/DuplicateUser.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.viewshoptosale" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Assign TL/CSE To Shop"/>
+        <put name="body"         value="/ViewShopToSale.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.editshoptosales" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Assign TL/CSE To Shop"/>
+        <put name="body"         value="/EditShopToSale.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.raiserequest" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Raise Request"/>
+        <put name="body"         value="/RaiseRequest.jsp" />
+    </definition>
+     <definition name="com.witribe.tiles.inventorylevel" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Inventory Level Setting"/>
+        <put name="body"         value="/InventoryLevelSetting.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.raiserequest2" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Raise Request"/>
+        <put name="body"         value="/RaiseRequest_2.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.raiserequest3" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Raise Request"/>
+        <put name="body"         value="/RaiseRequest_3.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.viewrequest" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Raise Request"/>
+        <put name="body"         value="/ViewRaiseRequest.jsp" />
+    </definition>
+    
+    <definition name="com.witribe.tiles.distributeinventory" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Raise Request"/>
+        <put name="body"         value="/DistributeInventory.jsp" />
+    </definition>
+    
+     <definition name="com.witribe.tiles.CSETransfer" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. CSE Transger"/>
+        <put name="body"         value="/CSETransfer.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.changestatus" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Raise Request"/>
+        <put name="body"         value="/ChangeStatus.jsp" />
+    </definition>
+    
+    <definition name="com.witribe.tiles.kiosksToShop" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. KiosksTOShop"/>
+        <put name="body"         value="/KiosksToShop.jsp" />
+    </definition>
+    
+     <definition name="com.witribe.tiles.viewshopshierarchy" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. View KiosksTOShop"/>
+        <put name="body"         value="/ViewKiosksToShop.jsp" />
+    </definition>
+    
+    <definition name="com.witribe.tiles.editshophierarchy" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Modify KiosksTOShop"/>
+        <put name="body"         value="/EditShopHierarchy.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.viewsaleslocation" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. View Salesperson City/Zone"/>
+        <put name="body"         value="/ViewLocationDetails.jsp" />
+    </definition>   
+    
+    <definition name="com.witribe.tiles.coveragecheck" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. View Coverage"/>
+        <put name="body"         value="/CoverageCheck_new.jsp" />
+    </definition>
+    
+     <definition name="com.witribe.tiles.searchinv" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Search Inventory"/>
+        <put name="body"         value="/SearchInventory.jsp" />
+    </definition>
+      <definition name="com.witribe.tiles.viewinv" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Search Inventory"/>
+        <put name="body"         value="/SearchInventory.jsp" />
+    </definition>
+
+     <definition name="com.witribe.tiles.zonesubzone" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Add Zone and Subzone"/>
+        <put name="body"         value="/AddZoneSubzone.jsp" />
+    </definition>
+    
+    <definition name="com.witribe.tiles.deletezonesubzone" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Add Zone and Subzone"/>
+        <put name="body"         value="/DeleteZoneSubzone.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.duplicateaddress" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Delete Zone and Subzone"/>
+        <put name="body"         value="/AddZoneSubzone.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.viewLeadStatusHistory" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Status details"/>
+        <put name="body"         value="/ViewLeadHistory.jsp" />
+
+    </definition> 
+     <definition name="com.witribe.tiles.viewAccountDetails" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Status details"/>
+        <put name="body"         value="/ViewAccountDetails.jsp" />
+  </definition>
+     
+      
+     <definition name="com.witribe.tiles.login" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Web Portal Login"/>
+	<put name="header"         value="./includes/HeaderLogin.jsp"/>
+        <put name="leftmenu"         value="./includes/LeftsideMenuLogin.jsp"/>
+        <put name="body"         value="/Login.jsp" />
+    </definition>
+    
+  <definition name="com.witribe.tiles.searchaccount" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Account Details"/>
+        <put name="body"        value="/searchManageAccount.jsp" /> 
+        </definition> 
+        
+  <definition name="com.witribe.tiles.searchAccountDetails" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Account Details"/>
+        <put name="body"        value="/searchAccountDetails.jsp" /> 
+   </definition> 
+   
+    <definition name="com.witribe.tiles.searchParticularAccountDetails" extends="com.witribe.tiles.defaultlayout">
+         <put name="title"       value="wi-tribe Pakistan limited :. Account Details"/>
+         <put name="body" value="/searchAccountParticularDetails.jsp" />
+      
+     </definition>
+     <definition name="com.witribe.tiles.getParticularInvoiceDetails" extends="com.witribe.tiles.defaultlayout">
+         <put name="title"       value="wi-tribe Pakistan limited :. Account Details"/>
+         <put name="body" value="/searchParticularInvoiceDetails.jsp" />
+      
+     </definition>
+   <definition name="com.witribe.tiles.paymentPage" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Account Details"/>
+        <put name="body" value="/makePayment.jsp" />
+       
+    </definition>
+    
+    <definition name="com.witribe.tiles.successRaiseRequest" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Account Details"/>
+        <put name="body" value="/success.jsp" />
+       
+    </definition>
+    <definition name="com.witribe.tiles.failureRaiseRequest" extends="com.witribe.tiles.defaultlayout">
+         <put name="title"       value="wi-tribe Pakistan limited :. Account Details"/>
+         <put name="body" value="/failure.jsp" />
+       
+    </definition>
+    
+     <!-- Added By Satya for Account creation -->
+    
+    
+    <!-- Dealer Account creation Related Configurations Starts-->
+    
+      <definition name="com.witribe.tiles.dealeraccountcreationaction" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Create Account For Dealer"/>
+        <put name="body"         value="/NewAccountDealer.jsp" />
+    </definition>
+    
+     <definition name="com.witribe.tiles.dealeraccountcreationcoveragecheckaction" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Create Account For Dealer"/>
+        <put name="body"         value="/CoverageCheck_acctdealer.jsp" />
+    </definition>
+    
+      <definition name="com.witribe.tiles.dealeraccountcreationstep1action" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Create Account For Dealer"/>
+        <put name="body"         value="/NewAccountDealer_Step1.jsp" />
+    </definition>   
+  
+      <definition name="com.witribe.tiles.dealeraccountcreationstep2action" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Create Account For Dealer"/>
+        <put name="body"         value="/NewAccountDealer_Step2.jsp" />
+    </definition>   
+   <!-- Dealer Account creation Related Configurations Ends-->
+   
+   <!-- Lead Account creation Related Configurations Starts-->
+   
+    <definition name="com.witribe.tiles.leadaccountcreationaction" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Create Account For Lead"/>
+        <put name="body"         value="/NewAccount.jsp" />
+
+    </definition>
+
+     <definition name="com.witribe.tiles.leadaccountcreationchildaction" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Create Account For Lead"/>
+        <put name="body"         value="/NewAccount_Child.jsp" />
+    </definition>
+    
+      <definition name="com.witribe.tiles.leadaccountcreationnextaction" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Create Account For Lead"/>
+        <put name="body"         value="/NewAccount_next.jsp" />
+    </definition>   
+     
+   <!-- Lead Account creation Related Configurations Ends -->
+
+    <definition name="com.witribe.tiles.viewcseinvstatus" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Inventory details"/>
+        <put name="body"         value="/ViewInventory.jsp" />
+    </definition>
+
+    
+    <definition name="com.witribe.tiles.commissionplan" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Sales Commission"/>
+        <put name="body"         value="/CommissionPlan.jsp" />
+    </definition>
+    
+    <definition name="com.witribe.tiles.submit" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited : Sales Commission"/>
+        <put name="body"         value="/PaymentRule.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.paymentrule" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited : Sales Commission"/>
+        <put name="body"         value="/CommissionRule.jsp" />
+    </definition>
+
+
+    <!--Added by bhawna on 20th oct -->
+    <definition name="com.witribe.tiles.voucherRequest" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Raise Voucher Request "/>
+        <put name="body"         value="/VoucherRequest.jsp" />
+    </definition>
+<!--end-->
+
+    
+    <definition name="com.witribe.tiles.transinv" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Transfer Inventory "/>
+        <put name="body"         value="/TransferInventory.jsp" />
+    </definition>
+
+
+    <definition name="com.witribe.tiles.invmail" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Inventory Mail Setting"/>
+        <put name="body"         value="/InvMailSetting.jsp" />
+    </definition>
+    <!-- added by murarli -->
+    <definition name="com.witribe.tiles.commissionplanview" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. View Commission Plan List"/>
+        <put name="body"         value="/CommissionPlanViewEdit.jsp" />
+    </definition>
+    <definition name="com.witribe.tiles.commissionplandetails" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. View Commission Plan Details"/>
+        <put name="body"         value="/CommissionPlanDetails.jsp" />
+    </definition>
+        <definition name="com.witribe.tiles.mycommissionreport" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. View My Commission Details"/>
+        <put name="body"         value="/MyCommissionReport.jsp" />
+    </definition>
+   
+    <definition name="com.witribe.tiles.mycommissionpayments" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. View My Commission Payment Details"/>
+        <put name="body"         value="/MyCommissionPayments.jsp" />
+    </definition> 
+         
+    <definition name="com.witribe.tiles.setcommissionmode" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Set Commission Mode"/>
+        <put name="body"         value="/SetCommissionMode.jsp" />
+    </definition>   
+    <!--Added by Murali on 15-Jan-2010 -->    
+    <definition name="com.witribe.tiles.showchannel" extends="com.witribe.tiles.defaultlayout">
+        <put name="title"       value="wi-tribe Pakistan limited :. Inventory Mail Setting"/>
+        <put name="body"         value="/AddChannel.jsp" />
+    </definition>
+
+</tiles-definitions>
