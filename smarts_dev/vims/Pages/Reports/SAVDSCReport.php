@@ -1,0 +1,158 @@
+<?PHP
+	session_start("VIMS");
+	set_time_limit(200);
+
+	//ob_start();
+	include_once("../../vims_config.php");
+	$conf=new config();
+	include_once(CLASSDIR."/POS.php");
+
+	//check permission
+	$return = $GLOBALS['_GACL']->getaccessLevel($_SESSION['username'],'SAVDSCREPORT');
+	if(!$return) {echo "Permission Denied"; exit();}
+
+	$vouch_obj = new Voucher();
+	$ch_obj = new Channel();
+
+	if($return=='NWD')
+	{
+		$channel_type_id 	= "1";
+		$channel_type_name	= "Retail SC WareHouse";
+		$regions = $ch_obj->getRegionsLive();
+	}
+
+	if($return=='Region')
+	{
+		$channel_type_id 	= "1";
+		$channel_type_name	= "Retail SC WareHouse";
+	}
+	//$_SESSION['reporttype']='receipt';
+        
+?>
+
+<script>
+$(function()
+{
+    var myDate = new Date();
+    var month = myDate.getMonth() + 1;
+    var date1 = month + '/' + '01' + '/' + myDate.getFullYear();
+    $("#start_date").val(date1);
+    
+    var myDate = new Date();
+    var month = myDate.getMonth() + 1;
+    var date2 = month + '/' + myDate.getDate() + '/' + myDate.getFullYear();
+    $("#end_date").val(date2);
+
+	$('#start_date').datepicker(
+		{
+			changeMonth: true,
+			changeYear: true
+		}
+	);
+	$('#end_date').datepicker(
+		{
+			changeMonth: true,
+			changeYear: true
+		}
+	);
+});
+
+</script>
+
+            <form name="collectionReport" id="collectionReport" method="post" action="FormProcessor/Reports/salesReport.php">
+                 <input type="hidden" name ="permission" id="permission" value="<?=$return?>">
+                 
+                    <table width="100%">
+					<tr>
+						<td colspan="2" align="center" style="font-size:16px"><strong>Voucher Collection Report </strong></td>
+					</tr>
+					<tr>
+						<td>
+							<table width="100%">
+								<tr>
+									<td>Region</td>
+									<td>
+										<?	if($return == 'NWD')
+										{	?>
+											<select name='region' id='region' class="selectbox" onchange="javascript:processForm( 'collectionReport','FormProcessor/Reports/getRegionalChannels.php','channeldiv' );">										
+												<option value="ALL"> -- ALL -- </option>
+												<?	foreach($regions as $arr)  
+													{ ?>
+													<option value="<?=$arr['region_id']?>"><?=$arr['region_id']?> </option>
+											<?	} ?>
+											</select>
+									<?	} else
+										{	?>
+											<?=$region_id?>
+											<input type="hidden" name ="region" id="region" value="<?=$region_id?>">
+									<?	}	?>
+									</td>
+								</tr> 
+								<tr>
+									<td>Channel Type</td>
+									<td>
+												<?=$channel_type_name?>
+                                                                                                <input type="hidden" name ="channel_type" id="channel_type" value="<?=$channel_type_id?>">
+									</td>
+								</tr>
+								<tr> 
+									<td>Channel/Shop</td>
+									<td>
+										<div name="channeldiv" id="channeldiv">
+										<?	if($return == 'Region' || $return == 'NWD')
+											{	?> 
+												<select name='channel' id='channel' class="selectbox" onchange="javascript:processForm( 'collectionReport','FormProcessor/Reports/getChannelUsers.php','userdiv' );">
+													<option value="ALL"> -- ALL -- </option>
+												<?	foreach($channels as $arr) 
+													{ ?>
+														<option value="<?=$arr['channel_id']?>"><?=$arr['channel_id']?>--<?=$arr['channel_name']?></option>
+												<?	} ?>
+												</select>
+										<?	} else
+											{	?>
+												<?=$channel_name?>
+												<input type="hidden" name ="channel" id="channel" value="<?=$channel_id?>">
+										<?	}	?>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>User</td>
+									<td>
+										<div name="userdiv" id="userdiv">
+										<?	if($return == 'Shop' || $return == 'Region' or $return == 'NWD')
+										{	?>
+											<select name='user' id='user' class="selectbox" >
+												<option value="ALL"> -- ALL -- </option>
+												<?	foreach($users as $arr) 
+													{ ?>
+														 <option value="<?=$arr['user_id']?>"><?=$arr['first_name'].' '.$arr['last_name']?> 
+												<?	} ?>
+											</select>
+										<?	} else
+											{	?>
+												<?=$user['first_name'].' '.$user['last_name']?>
+												<input type="hidden" name ="user" id="user" value="<?=$user['user_id']?>">
+										<?	}	?>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td> Start Date <input name="start_date" id="start_date" class="date-pick dp-applied"></td>
+						<td> End Date <input name="end_date" id="end_date" class="date-pick dp-applied">
+						<input name="FormAction" type='button' id="display" value='Display Report' onclick="javascript:processForm( 'collectionReport','FormProcessor/Reports/salesReport.php','Report' );">
+						</td>
+                    </tr>
+					
+				 </table>
+             </form>           
+          <div id="Report"></div>
+          <!-- end listing vouchers -->
+		   
+<script>
+//processForm( 'collection_date','FormProcessor/Reports/salesReport.php','Report' );
+
+</script>

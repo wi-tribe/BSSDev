@@ -1,0 +1,18 @@
+Google Search: symbolic link unix
+
+Command to be Executed in command promt of sftp
+
+
+command:  
+
+
+$ ln -s {/path/to/file-name} {link-name}
+
+e.g /var/www/html/dev/smarts_dev /utilities
+
+---
+
+
+3310010310693
+
+Standard Charter Username: aasim_nazar1984
