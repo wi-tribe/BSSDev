@@ -1,0 +1,26 @@
+#!/bin/bash
+    
+    webadd1="http://my.wi-tribe.pk/src/PInfranetServlet?login=amir-aziz&password=Jamil123&service=ip&page=login_verify&sessionState=start&Component=com.portal.web.comp.PLoginBeanImpl";
+    webadd2="http://my.wi-tribe.pk/src/PInfranetServlet?page=logout&sessionState=end"
+    search="Mr. Amir aziz";
+    page=`echo $webadd1 |cut -d "/" -f 1`;
+    base=/home/amir/scripts/weblogin/my;
+    
+    rm -Rf $base/*;
+    cd $base;
+    
+    wget -q --tries 1 --timeout 20 --save-cookies cookies.txt "$webadd1";
+
+    if [ -f $base/myProfile.jsp ]
+    then
+	grep "$search" $base/myProfile.jsp >> /dev/null;
+	if [ $? -eq 0 ]
+	then
+	    echo 1;
+	else
+    	    echo 0;
+	fi
+    else
+	echo 0;
+    fi
+    wget -q --load-cookies cookies.txt "$webadd2";

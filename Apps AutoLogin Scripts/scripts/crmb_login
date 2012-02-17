@@ -1,0 +1,26 @@
+#!/bin/bash
+    
+#    webadd1="http://helpdesk.wi-tribe.net.pk:8080/secure/BrowseProjects.jspa";
+
+    search=">Logout<";
+    page=`echo $webadd1 |cut -d "/" -f 1`;
+    base=/home/amir/scripts/weblogin/crmb;
+    
+    rm -Rf $base/*;
+    cd /home/amir/scripts/weblogin/scripts;
+    
+#    wget -q --tries 1 --timeout 20 --save-cookies cookies.txt --post-data 'os_username=amir.aziz&os_password=errorcode405&os_cookie=true' $webadd1;
+    /usr/java-1.6.0/jre/bin/java -jar CRMb.Autologin.jar admin admin123 > $base/index.jsp
+    if [ -f $base/index.jsp ]
+    then
+	grep "$search" $base/index.jsp >> /dev/null;
+	if [ $? -eq 0 ]
+	then
+	    echo 1;
+	else
+    	    echo 0;
+	fi
+    else
+	echo 0;
+    fi
+#    wget -q --load-cookies cookies.txt -p $webadd2;

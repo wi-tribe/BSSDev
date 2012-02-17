@@ -1,0 +1,25 @@
+#!/bin/bash
+    
+    webadd=http://smarts.wi-tribe.net.pk/vims_dev/logout.php;
+    webadd1=http://smarts.wi-tribe.net.pk/vims_dev/login.php;
+    search="Check Voucher Current Status";
+    page=`echo $webadd |cut -d "/" -f 1`;
+    base=/home/amir/scripts/weblogin/smarts;
+    
+    rm -Rf $base/* #2>/dev/null;
+    cd $base;
+    
+    wget -q --tries 1 --timeout 20 --save-cookies cookies.txt --post-data 'username=billingadmin&password=billingadmin' http://smarts.wi-tribe.net.pk/vims/login.php;
+    if [ -f $base/index.php ]
+    then
+	grep "$search" $base/index.php >> /dev/null;
+	if [ $? -eq 0 ]
+	then
+	    echo 1;
+	else
+    	    echo 0;
+	fi
+    else
+	echo 0;
+    fi
+    wget -q --load-cookies cookies.txt -p http://smarts.wi-tribe.net.pk/vims/logout.php;
