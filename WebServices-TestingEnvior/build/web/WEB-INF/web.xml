@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <listener>
+        <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>BRMWebService</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>BRMOneLink</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BRMWebService</servlet-name>
+        <url-pattern>/BRMWebService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BRMOneLink</servlet-name>
+        <url-pattern>/BRMOneLink</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <security-constraint>
+        <display-name>brm</display-name>
+        <web-resource-collection>
+            <web-resource-name>brmWebService</web-resource-name>
+            <description/>
+            <url-pattern>/BRMWebService</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>administrator</description>
+            <role-name>brmAdmin</role-name>
+            <role-name>brmUser</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <description>https</description>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>BRMOneLink</display-name>
+        <web-resource-collection>
+            <web-resource-name>OneLink</web-resource-name>
+            <description/>
+            <url-pattern>/BRMOneLink</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>one link</description>
+            <role-name>brmUser</role-name>
+            <role-name>brmAdmin</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <description>https</description>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>BASIC</auth-method>
+    </login-config>
+    <security-role>
+        <description>adminsitrator Roles</description>
+        <role-name>brmAdmin</role-name>
+    </security-role>
+    <security-role>
+        <description>1 link integration</description>
+        <role-name>brmUser</role-name>
+    </security-role>
+</web-app>
