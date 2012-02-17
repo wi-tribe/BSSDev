@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/WebServices">
+  <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxActive="100" maxIdle="20" maxWait="5000" name="OraBRMDs" password="pin" type="javax.sql.DataSource" url="jdbc:oracle:thin:@10.1.67.42:1521:bsspindb" username="pin"/>
+  <!--Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxActive="100" maxIdle="20" maxWait="5000" name="OraBRMDs" username="pin" password="pin" type="javax.sql.DataSource" url="jdbc:oracle:thin:@10.1.67.33:1521:bsspindb"/-->
+  <ResourceLink global="OraBRMDs" name="OraBRMDs" type="javax.sql.DataSource"/>
+</Context>
