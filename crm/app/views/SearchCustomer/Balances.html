@@ -1,0 +1,176 @@
+#{extends 'main.html' /} #{set title: 'Balances ' /} #{set roleId: session.get("userRoleId") /}
+<div class="secondary-navigation">
+    <ul class="wat-cf">
+        <li >#{a @SearchCustomer.details()}Summary#{/a}</li>
+        <li class="active">#{a @SearchCustomer.balances()}Balances#{/a}</li>
+    </ul>
+</div>
+<div class="block" id="course">
+	
+	<div class="content">
+	<h2 class="title">Financial Summary </h2>
+		<div class="inner">
+			<table class="table">
+				<tbody>
+					
+					<tr>
+						<td>
+							<blockquote>
+								<strong>Amount due for all bills </strong>:
+								<tt>${balances?.dueAmount}</tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong>Adjustments / payment not applied </strong>:
+								<tt>${balances?.payOrAdjust}</tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong>Due now </strong>:
+								<tt>${balances?.dueNow}</tt>
+							</blockquote>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<blockquote>
+								<strong>Bill in progress </strong>:
+								<tt>${balances?.currentBill}</tt>
+							</blockquote>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<blockquote>
+								<strong>Total balance </strong>:
+								<tt>${balances?.totalAmount}</tt>
+							</blockquote>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<blockquote>
+								<strong>Account credit limit </strong>:
+								<tt>${balances?.creditLimit}</tt>
+							</blockquote>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+	<br />
+	<div class="content">
+	<h2 class="title">Bills</h2>
+		<div class="inner">
+			<table class="table">
+				<tbody>
+					<tr>
+						<th align="left">
+							Invoice Details
+						</th>
+						<th align="left">
+							 Billing Cycle
+						</th>
+						<th align="left">
+							Due Date
+						</th>
+						<th align="left">
+							 Amount
+						</th>
+						<th align="left">
+							 Payments/Adjustments
+						</th>
+						<th align="left">
+							 Balances
+						</th>
+					</tr>
+					#{list balances.invoices, as:'invoice' }
+                    <tr class="${dep_parity}">
+                        <td>
+                                ${invoice?.m_InvNumber}
+                        </td>
+                        <td class="meta">
+                            ${invoice?.billingCycle}
+                        </td>
+                        <td class="meta">
+                            ${invoice?.dueDate}
+                        </td>
+                        <td class="meta">
+                            ${invoice?.m_InvAmount}
+                        </td>
+                        <td class="meta">
+                            ${invoice?.recAmount}
+                        </td>
+                        <td class="meta">
+                            ${invoice?.balance}
+                        </td>
+                    </tr>
+                    #{/list}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<br />
+	<div class="content">
+	<h2 class="title">Payments</h2>
+		<div class="inner">
+			<table class="table">
+				<tbody>
+					<tr>
+						<th align="left">
+							Date
+						</th>
+						<th align="left">
+							 Payment Method
+						</th>
+						<th align="left">
+							Paid
+						</th>
+						<th align="left">
+							 Allocated
+						</th>
+						<th align="left">
+							 Unallocated
+						</th>
+						<th align="left">
+							 Number
+						</th>
+					</tr>
+					#{list balances.payments, as:'payment' }
+                    <tr class="${dep_parity}">
+                        <td>
+                                ${payment?.paymentDate}
+                        </td>
+                        <td class="meta">
+                            ${payment?.paymentMethod}
+                        </td>
+                        <td class="meta">
+                            ${payment?.amountPayed}
+                        </td>
+                        <td class="meta">
+                            ${payment?.amountPayed}
+                        </td>
+                        <td class="meta">
+                            ${payment?.amountUnAllocated}
+                        </td>
+                        <td class="meta">
+                            ${payment?.paymentNo}
+                        </td>
+                    </tr>
+                    #{/list}
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

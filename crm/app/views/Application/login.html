@@ -1,0 +1,64 @@
+#{extends 'main.html' /}
+#{set title:'Login' /}
+<div id="box">
+
+	<div id="block-login" class="block">
+
+		<h2 id="title">Login</h2>
+		<div class="content login">
+
+			<div class="flash">
+
+				<div class="message	#{if flash?.error}error #{/if}
+			 #{else}notice #{/else}">
+
+
+				<p>
+                #{if flash?.error}
+
+                        ${flash.error}
+
+				#{/if}
+				#{elseif flash?.success}
+					
+					${flash.success}
+
+				 #{/elseif}
+				#{else}
+						Please use your UBBCluj.ro email to authenticate!
+				#{/else}
+				</p>
+
+	</div>
+</div>
+
+			<form id="login" action="@{Application.authenticate}" class="login form" method="POST" accept-charset="utf-8">
+    			<div class="group wat-cf">
+					<div class="left">
+						<label class="label right" for="email">Email</label>
+					</div>
+					<div class="right">
+						<input type="text" name="email" class="text_field" value="${flash.email}" id="email" />
+					</div>
+				</div>
+    			<div class="group wat-cf">
+				<div class="left">
+        			<label class="right label" for="password">Password</label>
+				</div>
+				<div class="right">
+        			<input type="password" class="text_field" name="password" value="" id="password" />
+				</div>
+    			</div>
+    			<div  class="group navform wat-cf">
+					<div class="right">
+
+        				<button class="button" type="submit" value="Login" id="loginButton" />
+						<img src="@{'/public/images/key.png'}" alt="" />Login
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	</div>
+</div>

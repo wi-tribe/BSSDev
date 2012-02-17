@@ -1,0 +1,224 @@
+[info] Updating {file:/D:/Data/Play/Docs/Projects/proiect-colectiv-app-6184dfe/joodle/}default-532a08...
+[debug] post 1.3 ivy file: using exact as default matcher
+[debug] :: resolving dependencies :: default#default-532a08_2.9.1;0.1
+[debug] 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom]
+[debug] 	validate = true
+[debug] 	refresh = false
+[debug] resolving dependencies for configuration 'compile'
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [compile]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=compile
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->default(compile)]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=compile
+[debug] 	using sbt-chain to resolve org.scala-lang#scala-library;2.9.1
+[debug] sbt-chain: Checking cache for: dependency: org.scala-lang#scala-library;2.9.1 {compile=[default(compile)]}
+[debug] sbt-chain: no namespace defined: using system
+[debug] No entry is found in the ModuleDescriptorCache : c:\Play\framework\..\repository\cache\org.scala-lang\scala-library\ivy-2.9.1.xml
+[debug] post 1.3 ivy file: using exact as default matcher
+[debug] 	found ivy file in cache for org.scala-lang#scala-library;2.9.1 (resolved by local): c:\Play\framework\..\repository\cache\org.scala-lang\scala-library\ivy-2.9.1.xml
+[debug] sbt-chain: module revision found in cache: org.scala-lang#scala-library;2.9.1
+[debug] sbt-chain: no latest strategy defined: using default
+[debug] local: no namespace defined: using system
+[debug] Entry is found in the ModuleDescriptorCache : c:\Play\framework\..\repository\cache\org.scala-lang\scala-library\ivy-2.9.1.xml
+[debug] 	found ivy file in cache for org.scala-lang#scala-library;2.9.1 (resolved by local): c:\Play\framework\..\repository\cache\org.scala-lang\scala-library\ivy-2.9.1.xml
+[debug] 	local: revision in cache: org.scala-lang#scala-library;2.9.1
+[debug] 	checking org.scala-lang#scala-library;2.9.1 from local against [none]
+[debug] 	module revision kept as first found: org.scala-lang#scala-library;2.9.1 from local
+[debug] 	found org.scala-lang#scala-library;2.9.1 in local
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->runtime]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=compile
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->compile]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=compile
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->master]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=compile
+[debug] resolving dependencies for configuration 'runtime'
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [runtime]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=runtime
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [compile]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=runtime
+[debug] runtime is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->default(compile)]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=runtime
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->runtime]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=runtime
+[debug] runtime is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->compile]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=runtime
+[debug] runtime is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->master]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=runtime
+[debug] runtime is loaded and no conf to load.  Skip loading
+[debug] resolving dependencies for configuration 'test'
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [test]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=test
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [runtime]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=test
+[debug] test is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [compile]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=test
+[debug] test is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->default(compile)]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=test
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->runtime]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=test
+[debug] test is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->compile]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=test
+[debug] test is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->master]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=test
+[debug] test is loaded and no conf to load.  Skip loading
+[debug] resolving dependencies for configuration 'provided'
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [provided]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=provided
+[debug] resolving dependencies for configuration 'optional'
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [optional]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=optional
+[debug] resolving dependencies for configuration 'compile-internal'
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [compile-internal]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=compile-internal
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [compile]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=compile-internal
+[debug] compile-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->default(compile)]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=compile-internal
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->runtime]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=compile-internal
+[debug] compile-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->compile]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=compile-internal
+[debug] compile-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->master]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=compile-internal
+[debug] compile-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [optional]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=compile-internal
+[debug] compile-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [provided]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=compile-internal
+[debug] compile-internal is loaded and no conf to load.  Skip loading
+[debug] resolving dependencies for configuration 'runtime-internal'
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [runtime-internal]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=runtime-internal
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [runtime]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=runtime-internal
+[debug] runtime-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [compile]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=runtime-internal
+[debug] runtime-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->default(compile)]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=runtime-internal
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->runtime]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=runtime-internal
+[debug] runtime-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->compile]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=runtime-internal
+[debug] runtime-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->master]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=runtime-internal
+[debug] runtime-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [optional]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=runtime-internal
+[debug] runtime-internal is loaded and no conf to load.  Skip loading
+[debug] resolving dependencies for configuration 'test-internal'
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [test-internal]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=test-internal
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [test]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=test-internal
+[debug] test-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [runtime]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=test-internal
+[debug] test-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [compile]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=test-internal
+[debug] test-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->default(compile)]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=test-internal
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->runtime]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=test-internal
+[debug] test-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->compile]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=test-internal
+[debug] test-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies default#default-532a08_2.9.1;0.1->org.scala-lang#scala-library;2.9.1 [compile->master]
+[debug] loadData of org.scala-lang#scala-library;2.9.1 of rootConf=test-internal
+[debug] test-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [optional]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=test-internal
+[debug] test-internal is loaded and no conf to load.  Skip loading
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [provided]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=test-internal
+[debug] test-internal is loaded and no conf to load.  Skip loading
+[debug] resolving dependencies for configuration 'plugin'
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [plugin]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=plugin
+[debug] resolving dependencies for configuration 'sources'
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [sources]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=sources
+[debug] resolving dependencies for configuration 'docs'
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [docs]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=docs
+[debug] resolving dependencies for configuration 'pom'
+[debug] == resolving dependencies for default#default-532a08_2.9.1;0.1 [pom]
+[debug] loadData of default#default-532a08_2.9.1;0.1 of rootConf=pom
+[debug] Nbr of module to sort : 1
+[debug] Sort dependencies of : org.scala-lang#scala-library;2.9.1 / Number of dependencies = 0
+[debug] Sort done for : org.scala-lang#scala-library;2.9.1
+[debug] org.scala-lang#scala-library;2.9.1 in test-internal: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] org.scala-lang#scala-library;2.9.1 in test: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] org.scala-lang#scala-library;2.9.1 in compile: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] org.scala-lang#scala-library;2.9.1 in runtime: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] org.scala-lang#scala-library;2.9.1 in runtime-internal: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] org.scala-lang#scala-library;2.9.1 in compile-internal: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] 	resolved ivy file produced in c:\Play\framework\..\repository\cache\resolved-default-default-532a08_2.9.1-0.1.xml
+[debug] :: downloading artifacts ::
+[debug] org.scala-lang#scala-library;2.9.1 in test-internal: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] org.scala-lang#scala-library;2.9.1 in test: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] org.scala-lang#scala-library;2.9.1 in compile: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] org.scala-lang#scala-library;2.9.1 in runtime: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] org.scala-lang#scala-library;2.9.1 in runtime-internal: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] org.scala-lang#scala-library;2.9.1 in compile-internal: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] org.scala-lang#scala-library;2.9.1 in test-internal: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] org.scala-lang#scala-library;2.9.1 in test: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] org.scala-lang#scala-library;2.9.1 in compile: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] org.scala-lang#scala-library;2.9.1 in runtime: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] org.scala-lang#scala-library;2.9.1 in runtime-internal: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] org.scala-lang#scala-library;2.9.1 in compile-internal: excluding org.scala-lang#scala-library;2.9.1!scala-library.jar
+[debug] :: resolution report :: resolve 517ms :: artifacts dl 5ms
+[debug] Nbr of module to sort : 1
+[debug] Sort dependencies of : org.scala-lang#scala-library;2.9.1 / Number of dependencies = 0
+[debug] Sort done for : org.scala-lang#scala-library;2.9.1
+[debug] 	report for default#default-532a08_2.9.1;0.1 compile produced in c:\Play\framework\..\repository\cache\default-default-532a08_2.9.1-compile.xml
+[debug] Nbr of module to sort : 1
+[debug] Sort dependencies of : org.scala-lang#scala-library;2.9.1 / Number of dependencies = 0
+[debug] Sort done for : org.scala-lang#scala-library;2.9.1
+[debug] 	report for default#default-532a08_2.9.1;0.1 runtime produced in c:\Play\framework\..\repository\cache\default-default-532a08_2.9.1-runtime.xml
+[debug] Nbr of module to sort : 1
+[debug] Sort dependencies of : org.scala-lang#scala-library;2.9.1 / Number of dependencies = 0
+[debug] Sort done for : org.scala-lang#scala-library;2.9.1
+[debug] 	report for default#default-532a08_2.9.1;0.1 test produced in c:\Play\framework\..\repository\cache\default-default-532a08_2.9.1-test.xml
+[debug] Nbr of module to sort : 0
+[debug] 	report for default#default-532a08_2.9.1;0.1 provided produced in c:\Play\framework\..\repository\cache\default-default-532a08_2.9.1-provided.xml
+[debug] Nbr of module to sort : 0
+[debug] 	report for default#default-532a08_2.9.1;0.1 optional produced in c:\Play\framework\..\repository\cache\default-default-532a08_2.9.1-optional.xml
+[debug] Nbr of module to sort : 1
+[debug] Sort dependencies of : org.scala-lang#scala-library;2.9.1 / Number of dependencies = 0
+[debug] Sort done for : org.scala-lang#scala-library;2.9.1
+[debug] 	report for default#default-532a08_2.9.1;0.1 compile-internal produced in c:\Play\framework\..\repository\cache\default-default-532a08_2.9.1-compile-internal.xml
+[debug] Nbr of module to sort : 1
+[debug] Sort dependencies of : org.scala-lang#scala-library;2.9.1 / Number of dependencies = 0
+[debug] Sort done for : org.scala-lang#scala-library;2.9.1
+[debug] 	report for default#default-532a08_2.9.1;0.1 runtime-internal produced in c:\Play\framework\..\repository\cache\default-default-532a08_2.9.1-runtime-internal.xml
+[debug] Nbr of module to sort : 1
+[debug] Sort dependencies of : org.scala-lang#scala-library;2.9.1 / Number of dependencies = 0
+[debug] Sort done for : org.scala-lang#scala-library;2.9.1
+[debug] 	report for default#default-532a08_2.9.1;0.1 test-internal produced in c:\Play\framework\..\repository\cache\default-default-532a08_2.9.1-test-internal.xml
+[debug] Nbr of module to sort : 0
+[debug] 	report for default#default-532a08_2.9.1;0.1 plugin produced in c:\Play\framework\..\repository\cache\default-default-532a08_2.9.1-plugin.xml
+[debug] Nbr of module to sort : 0
+[debug] 	report for default#default-532a08_2.9.1;0.1 sources produced in c:\Play\framework\..\repository\cache\default-default-532a08_2.9.1-sources.xml
+[debug] Nbr of module to sort : 0
+[debug] 	report for default#default-532a08_2.9.1;0.1 docs produced in c:\Play\framework\..\repository\cache\default-default-532a08_2.9.1-docs.xml
+[debug] Nbr of module to sort : 0
+[debug] 	report for default#default-532a08_2.9.1;0.1 pom produced in c:\Play\framework\..\repository\cache\default-default-532a08_2.9.1-pom.xml
+[debug] 	resolve done (517ms resolve - 5ms download)
+[info] Done updating.

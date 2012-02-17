@@ -1,0 +1,12 @@
+#{set email:session.get("userEmail") /}
+#{set roleId:session.get("userRoleId") /}
+
+<div id="user-navigation">
+    <ul class="wat-cf">
+        #{if email }
+        <li class="user_email">${email}</li>
+        <li class="home">#{a @Application.index()}Home#{/a}</li>
+        <li class="logout">#{a @Application.logout()}Logout#{/a}</li>
+        #{/if}
+    </ul>
+</div>

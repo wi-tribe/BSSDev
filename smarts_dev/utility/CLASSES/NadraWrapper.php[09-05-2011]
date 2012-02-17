@@ -1,0 +1,116 @@
+<?php
+/*************************************************
+* Written by Saad Bashir 
+* imsaady@gmail.com
+* NPM Integration base class
+**************************************************/
+//if(!defined("witribeSaad") || !witribeSaad) die('unauthorized access');
+include_once(LIB."/nusoap1.php");
+include_once(UTIL_CLASSDIR."/Logging.php");
+//require_once('lib/nusoap/class.wsdlcache.php');
+/**
+ * Deals with login authentication and validation
+ * 
+ * @category   Order Entry
+ * @package    CORE
+ * @author     Saad Bashir <imsaady@gmail.com> Original Author
+ * @copyright  2008-2010 wi-tribe pakistan
+ */
+
+class NadraWrapper 
+{
+    private $debug;
+	/**
+	 * default Configurations 
+	 *
+	 * @var conf
+	 */
+	private $conf;
+	
+	/**
+	 * CRM webserice address
+	 *
+	 * @var crmHost
+	 */
+	private $npmHost;
+
+	public $error;
+	
+	/******************************************************** 
+	 * Constructor
+	 *
+	 */
+	
+	public function __construct()
+	{
+        $this->debug = false;
+		//$this->conf = new config();
+		//$this->npmHost = new nusoap_client($this->conf->motorola_npm_api_url,true);
+		//$this->npmHost->setCredentials($this->conf->motorola_npm_api_user,$this->conf->motorola_npm_api_pass);
+		$this->npmHost = new nusoap_client("http://10.10.10.11:4321/CitizenVerification/ValidationPort?wsdl",false); 
+		//$this->npmHost->setCredentials('smarts','wtpkSmarts987');
+		$this->npmHost->loadWSDL();
+        //print_r($this->npmHost);
+		//$this->printDebug(true);
+	} //END __construct()
+	
+	/******************************************************** 
+	 * destructor
+	 *
+	 */
+	public function __destruct()
+	{
+	
+	} //END __destruct()
+	
+    /********************************************************
+	 * 
+	 * 
+	 */
+    public function verify($cnic , $mac = "?")
+    {
+		if($mac == "")
+		{
+			$mac ="?";
+		}
+		$phone_no= $mac;
+        $trans_code ="?";
+		$username='wit_isb1';
+		$password='pakistan1234';	
+        $params = array(	array (	'citizen_number' => $cnic,
+									'phone_no' => $phone_no,
+									'username' => $username,
+                                    'password' => $password,
+                                    'transaction_code' => $trans_code
+                                )
+                        );             
+		$response = $this->npmHost->call('verify', $params,"http://service.citizenverification.nadra.gov.pk/");
+		//print $response;
+		$log= new Retention_Logging();
+		$log_info['action']="cnic_verification";
+		$values = $response['applicant_name'];
+		$log_info['details']=$cnic."_".$mac."_".utf8_encode($values)."_".( $response['verified_p']==true?'verified':'invalid');
+		$log_info['debug_details']=$response;
+		$log->logToDB($log_info);
+	
+		$this->printDebug(false);
+        return $response;
+	} // END OF addSubscriberAccount()
+
+
+     /********************************************************
+	 *
+	 *
+	 */
+	public function printDebug($local=false)
+    {
+        if($this->debug || $local)
+   		{   echo '<h2>Request</h2><pre>' . htmlspecialchars($this->npmHost->request, ENT_QUOTES) . '</pre>';
+            echo '<h2>Response</h2><pre>' . htmlspecialchars($this->npmHost->response, ENT_QUOTES) . '</pre>';
+			echo '<h2>Debug</h2><pre>' . htmlspecialchars($this->npmHost->debug_str, ENT_QUOTES) . '</pre>';
+        }
+
+    } //END OF printDebug()
+
+} //END OF NPMWrapper CLASS
+?>

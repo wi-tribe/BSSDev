@@ -1,0 +1,47 @@
+#{extends 'main.html' /}
+#{set title: 'Customers' /}
+#{set roleId:session.get("userRoleId") /}
+
+<div id="courses" class="block">
+    <div class="content">
+        <h2 class="title">${title}</h2>
+
+        <table class="table">
+            <tbody>
+                #{if accounts}
+                    <tr>
+                        <th>Account No</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Company</th>
+                        <th class="last"> </th>
+                    </tr>
+                    #{list items:accounts, as:'acc' }
+                    <tr class="${dep_parity}">
+                        <td>
+                                ${acc?.accountNo}
+                        </td>
+                        <td class="meta">
+                            ${acc?.firstName}
+                        </td>
+                        <td class="meta">
+                            ${acc?.lastName}
+                        </td>
+                        <td class="meta">
+                            ${acc?.companyName}
+                        </td>
+                        <td class="last">
+                            #{a @SearchCustomer.details(acc.getAccountNo())}Details#{/a} 
+                        </td>
+                    </tr>
+                    #{/list}
+                #{/if}
+ 		#{else}
+                    <tr>
+                        <td>No Customer found.</td>
+                    </tr>
+		#{/else}
+            </tbody>
+        </table>
+    </div>
+</div>

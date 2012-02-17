@@ -1,0 +1,45 @@
+#{extends 'main.html' /}
+#{set title:'Search Customer' /}
+
+<div id="add-department" class="block">
+    <div class="content">
+
+        <h2 class="title">${title}</h2>
+        <div class="inner">
+
+            <form method="post" action="@{SearchCustomer.index}" class="form">
+                <div class="group">
+                    <label class="label" for="title">Account number:</label>
+                    <input type="text" class="text_field" id ="title" name="find[accno]" value="" />
+                </div>
+                <div class="group">
+                    <label class="label" for="content">First Name:</label>
+                    <input type="text" class="text_field" id ="content" name="find[fname]" value="" />
+                </div>
+                <div class="group">
+                    <label class="label" for="content">Last Name:</label>
+                    <input type="text" class="text_field" id ="content" name="find[lname]" value="" />
+                </div>
+                <div class="group">
+                    <label class="label" for="content">ID:</label>
+                    <input type="text" class="text_field" id ="content" name="find[serviceid]" value="" />
+                </div>
+                <div class="group">
+                    <label class="label" for="content">MAC Address:</label>
+                    <input type="text" class="text_field" id ="content" name="find[macaddress]" value="" />
+                </div>
+                <div class="group">
+                    <label class="label" for="content">CNIC/Passport</label>
+                    <input type="text" class="text_field" id ="content" name="find[cnic]" value="" />
+                </div>
+                <div class="group">
+                    <label class="label" for="content">Mobile Number</label>
+                    <input type="text" class="text_field" id ="content" name="find[mobile]" value="" />
+                </div>
+                <div class="navform group wat-cf">
+                    <button type="submit" value="" class="button">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

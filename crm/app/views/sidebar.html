@@ -1,0 +1,17 @@
+<!-- Staff -->
+#{if roleId == '2'}
+    #{include 'staff_sidebar.html' /}
+#{/if}
+
+<!-- Teachers -->
+#{elseif roleId == '1'}
+    #{include 'teachers_sidebar.html' /}
+#{/elseif}
+
+<!-- Students -->
+#{elseif roleId == '0'}
+    #{include 'students_sidebar.html' /}
+
+
+#{/elseif}
+

@@ -1,0 +1,20 @@
+<ul class="wat-cf">    
+    <!-- Staff -->
+    #{if roleId == '2'}
+    #{include 'staff_menu.html' /}
+    #{/if}
+
+    <!-- Teachers -->
+    #{elseif roleId == '1'}
+    #{include 'teachers_menu.html' /}
+    #{/elseif}
+
+    <!-- Students -->
+    #{elseif roleId == '0'}
+    #{include 'students_menu.html' /}
+
+
+    #{/elseif}
+    #{if request.controller == 'Application'}
+</ul>
+#{/if}

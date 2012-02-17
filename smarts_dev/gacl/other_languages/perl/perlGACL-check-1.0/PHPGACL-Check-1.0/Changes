@@ -1,0 +1,6 @@
+Revision history for Perl extension PHPGACL::Check.
+
+0.01  Thu Apr 29 09:39:40 2004
+	- original version; created by h2xs 1.23 with options
+		-AXc -n PHPGACL::Check
+

@@ -1,0 +1,62 @@
+/* Joodle main CSS file */
+
+html {
+    overflow-y: scroll;
+}
+
+html, body {
+    background: #F7F7F7;
+    font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5em !important;
+}
+
+html {
+    border-top: 5px solid #67A927;
+}
+
+a {
+    color: #000;
+}
+
+#user-menu {
+    width: 900px;
+    padding: 2px 5px;
+    text-align: right;
+    margin: 0 auto;
+	position:relative;
+	z-index:10;
+}
+
+#user-menu ul {
+    float: right;
+}
+
+#user-menu ul li {
+    float: left;
+    list-style: none;
+    margin-left: 5px;
+}
+
+#container {
+    padding: 20px 0;
+    width: 900px;
+    margin: auto;
+    position: relative;
+}
+
+.wrapped {
+    width: 650px;
+}
+
+
+/* Helpers */
+.error {
+    color: #cc0000;
+    font-style: italic;
+}
+
+.success { 
+    color: #67A927;
+    font-style: italic;
+}

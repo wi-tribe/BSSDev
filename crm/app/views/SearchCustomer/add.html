@@ -1,0 +1,25 @@
+#{extends 'main.html' /}
+#{set title:'Add Department' /}
+
+<div id="add-department" class="block">
+    <div class="content">
+
+        <h2 class="title">${title}</h2>
+        <div class="inner">
+
+            <form method="post" action="@{Departments.create}" class="form">
+                <div class="group">
+                    <label class="label" for="title">Department Name</label>
+                    <input type="text" class="text_field" id ="title" name="dep[title]" value="" />
+                </div>
+                <div class="group">
+                    <label class="label" for="content">Department Keyword</label>
+                    <input type="text" class="text_field" id ="content" name="dep[kw]" value="" />
+                </div>
+                <div class="navform group wat-cf">
+                    <button type="submit" value="" class="button">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

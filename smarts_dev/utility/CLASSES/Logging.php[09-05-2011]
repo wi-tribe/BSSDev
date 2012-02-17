@@ -1,0 +1,114 @@
+<? 
+/*************************************************
+* Written by Saad Bashir Dar 
+* imsaady@gmail.com
+* sales rep class, authentication based on
+* Oracle BRM /SugarCRM
+**************************************************/
+include_once("../util_tables.php");
+include_once("../core_config_uat.php");
+include_once(UTIL_CLASSDIR."/Database.php");
+include_once(UTIL_CLASSDIR."/encryption.php");
+include_once(UTIL_CLASSDIR."/Sales.php");
+
+/**
+ * used for different reporting requirements
+ *
+ * @category   Order Entry
+ * @package    WOE
+ * @author     Saad Bashir <imsaady@gmail.com> Original Author
+ * @copyright  2008-2010 wi-tribe Pakistan
+ */
+ 
+class Retention_Logging
+{
+	private $debug;
+	/**
+	 * Default configuration object
+	 *
+	 * @var config
+	 */
+	private $conf;
+	/**
+	 * db object
+	 *
+	 * @var db
+	 */
+	private $db;
+	/**
+	 * Store local class messages/errors
+	 *
+	 * @var string
+	 */
+	public $error;
+	
+	/**
+	 * Constructor
+	 *
+	 */
+	public function __construct()
+	{
+		$this->debug=false;
+		$this->conf = new core_config();
+
+		//connect to DB
+		 $oe = array (	'host_name' => $this->conf->DB_HOST,
+						'database' => $this->conf->DB_NAME,
+						'user_name' => $this->conf->DB_USER,
+						'password' => $this->conf->DB_PASSWORD
+			);
+		$this->db = new Database();
+ 		$this->db->connect($oe);
+	}
+	
+	/**
+	 * Destructor
+	 *
+	 */
+	public function __destruct()
+	{
+		
+	}
+
+  //tested
+	private function debugMsg($message,$arr=NULL)
+	{
+		if($this->debug)
+		{
+			print "debug:______________________ $message<BR>";
+			if($arr!=NULL)
+				print_r($arr);
+				print "<BR>";
+		}
+
+	}
+	
+
+    
+	/**
+	 * Store prospect information into database
+	 *
+	 * @return bool
+	 */
+	public function logToDB($log_info)
+	{
+		$sales = new Sales();
+		//$csr = $sales->getCurrentCSR();
+		//$log_record['user_id'] 		= $csr [0]['csr_id']."_".$csr [0]['csr_name'];
+		$log_record['user_id'] 			= rc4crypt::decrypt("saadi-witribe",base64_decode($_SESSION['csr_id']),1)."_".rc4crypt::decrypt("saadi-witribe",base64_decode($_SESSION['csr_name']),1);
+		$log_record['action'] 			= $log_info['action'];
+		$log_record['details'] 			= $log_info['details'];
+		$log_record['debug_details'] 	= preg_replace('/\<br(\s*)?\/?\>/i', "\n", $log_info['debug_details']);
+		$this->db->insert_table_data(LOG_TABLE,$log_record );
+		$id = $this->db->get_last_insert_id();
+                
+		if($id== NULL)
+		{
+			$this->error .= "<BR> Unable to save prospect information";
+			return -1;
+		}
+        return $id;
+	}
+	
+}
+?>

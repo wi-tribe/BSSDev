@@ -1,0 +1,98 @@
+#{set title: 'Device Details' /}
+<script src="@{'/public/javascripts/jquery-1.4.2.min.js'}" type="text/javascript"></script>
+
+<script type="text/javascript" language="javascript">
+
+var x=document.forms["deviceDetail"]["mac"].value;
+if (x==null || x=="")
+{
+document.forms["deviceDetail"]["Add"].disabled = false;
+document.forms["deviceDetail"]["Remove"].disabled = true;
+document.forms["deviceDetail"]["Removalreason"].disabled = true;
+document.forms["deviceDetail"]["mac"].readOnly = false;
+}
+
+function abc()
+{
+    alert("yes");
+    
+}
+</script>
+<div class="content">
+	<h2 class="title">Device Details</h2>
+        <form action="@{SearchCustomer.deviceAddorRemove}" id="deviceDetail" name="deviceDetail" method="post">
+                    #{ifErrors}
+                    <p class="error">
+                        Please correct these errors.
+                    </p>
+                    #{/ifErrors}
+                    <table class="table">
+				<tbody>
+                                        <tr>
+						<td width="50%">
+							<blockquote>
+								<strong>Account ID</strong>:
+                                                                <tt>&nbsp;&nbsp;&nbsp;</tt>
+                                                                <tt><strong>${AccountID}</strong></tt>
+							</blockquote>
+						</td>
+                                        <tr>
+						<td width="50%">
+							<blockquote>
+								<strong>Device Serial Number</strong>:
+                                                                <tt> <input type="text" name="devSerial" class="text_field" value="${DeviceSerial}" readonly="readonly"/></tt>
+							</blockquote>
+						</td>
+					</tr>
+                                        <tr>
+						<td width="50%">
+							<blockquote>
+								<strong>CPE MAC Address</strong>:
+                                                                <tt>&nbsp;&nbsp;</tt>
+								<tt><input type="text" class="text_field" name="mac" value="${MAC}" readonly="readonly"/></tt>
+							</blockquote>
+						</td>
+					</tr>
+                                        <tr>
+						<td width="50%">
+							<blockquote>
+								<strong>Model</strong>:
+                                                                <tt>&nbsp;&nbsp;</tt>
+								<tt>${Model}</tt>
+							</blockquote>
+						</td>
+					</tr>
+                                        <tr>
+						<td width="50%">
+							<blockquote>
+								<strong>Make</strong>:
+                                                                <tt>&nbsp;&nbsp;</tt>
+								<tt>${Make}</tt>
+							</blockquote>
+						</td>
+					</tr>
+                                        <tr>
+						<td width="50%">
+							<blockquote>
+								<strong>Shop ID</strong>:
+                                                                <tt>&nbsp;&nbsp;</tt>
+								<tt>${Source}</tt>
+							</blockquote>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+                    <input type="hidden" id="accountNo" name="accountNo" value="${AccountID}"/>
+                    <p>
+                        <select name="Removalreason" id="Removalreason">
+                            <option value="0" selected="selected">Damaged</option>
+                          <option value="1">Replacement Req</option>
+                        </select>
+                        &nbsp;
+                        <input type="button" id="Add" value="Add" disabled="disabled"  onclick="abc()" />
+                        &nbsp;
+                        <input type="submit" id="Remove" value="Remove"/>
+                    </p>
+                    <div id="verification_info"></div>
+                    </form>
+		</div>

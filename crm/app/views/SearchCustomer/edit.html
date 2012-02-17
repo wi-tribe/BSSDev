@@ -1,0 +1,29 @@
+#{extends 'main.html' /}
+#{set title: 'Edit Department: ' + dep.title /}
+
+<div id="add-department" class="block">
+    <div class="content">
+
+        <h2 class="title">${title}</h2>
+        <div class="inner">
+
+            <form method="post" class="form" action="@{Departments.update}/${dep.id}">
+                <div class="group">
+                    <label class="label" for="title">Department Name</label>
+                    <input type="text" class="text_field" id ="title" name="dep[title]" value="${dep.title}" />
+                </div>
+                <div class="group">
+                    <label class="label" for="keyword">Department Keyword</label>
+                    <input type="text" class="text_field" id ="keyword" name="dep[kw]" value="${dep.keyword}" />
+                </div>
+                
+                <input type="hidden" name="dep[id]" value="${dep.getId()}" />
+                
+                <div class="navform group wat-cf">
+                    <button type="submit" value="" class="button">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
