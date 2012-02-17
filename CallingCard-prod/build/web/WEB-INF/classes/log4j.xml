@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration>
+  <appender name="appender" class="org.apache.log4j.DailyRollingFileAppender">
+    <param name="file" value="CallingCard-Logging.log" />
+    <param name="append" value="true" />
+   <!--   <param name ="setMaxFileSize" value="200MB" /> !-->
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value=" %d - %-5p --- %m%n-%n"/>
+    </layout>
+  </appender>
+
+<root>
+<priority value="DEBUG"></priority>
+<appender-ref ref="appender"/>
+
+</root>
+</log4j:configuration>
