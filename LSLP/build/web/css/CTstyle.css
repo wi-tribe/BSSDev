@@ -1,67 +1,0 @@
-BODY {
-	FONT-SIZE: 10px;
-	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
-	padding:0px;
-background-image: url(../images/bg.gif);
-margin:0px;
-}
-.td {
-	FONT-SIZE: 11px;
-	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; padding:10px;
-}
-
-.heading {
-	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
-	TEXT-DECORATION: none;
-	color:#767677;
-	font-size: 13px; padding:0px;
-	font-weight: bold;
-}
-
-
-.copyright {  FONT-FAMILY: "Courier New", Courier, monospace; TEXT-DECORATION: none; color:#ffffff; font-size: 13px;
-}
-
-.heading2 {
-	font-family:Verdana, Arial, Helvetica, sans-serif; font-weight: bold; color: #000000; font-size: 14px;
-}
-
-A:link {
-	 FONT-SIZE: 12px; color: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none; font-weight:bold;
-}
-A:visited {
-	FONT-SIZE: 12px;color: #ffffff;FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none;font-weight:bold;
-}
-A:hover {
-	FONT-SIZE: 12px; COLOR:color: #ffffff;FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;TEXT-DECORATION: underline;font-weight:bold;
-}
-
-
-.higlight {
-	FONT-WEIGHT: bold; FONT-SIZE: 15px; COLOR: #fc7803; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
-}
-
-a.options:link {
-	 FONT-SIZE: 12px; color: #3a3a3a; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none; font-weight:bold;
-}
-a.options:visited {
-	FONT-SIZE: 12px;color: #c60651;FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none;font-weight:bold;
-}
-a.options:hover {
-	FONT-SIZE: 12px; COLOR:color: #c60651;FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;TEXT-DECORATION: underline;font-weight:bold;
-}
-
-	  
-	 
-/******** EOUNDED SHAPE CSS ***********/
-
-
-
-.heading3 { font-family:Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none; color:#D21065; font-size: 15px; font-weight:bold;
-}
-.heading4 {
-	 FONT-SIZE: 15px; COLOR:  #767677;  FONT-FAMILY: "Courier New", Courier, monospace; TEXT-DECORATION: none
-}
-
-
-
