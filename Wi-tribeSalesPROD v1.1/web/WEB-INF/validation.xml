@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+
+<!--
+     This is a minimal Validator form file with a couple of examples.
+-->
+
+    <global>
+
+        <!-- An example global constant
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^\d{5}\d*$</constant-value>
+        </constant>
+        end example-->
+
+    </global>
+
+    <formset>
+
+        <!-- An example form -->
+        <form name="leadform">
+            <field
+                property="firstname"
+                depends="required">
+                    <arg key="leadForm.firstname"/>
+            </field>
+            <field
+                property="lastname"
+                depends="required">
+                    <arg key="leadForm.lastname"/>
+            </field>
+            <field
+                property="email"
+                depends="required,email">
+                    <arg key="leadForm.email"/>
+            </field>
+             <field
+                property="contactnumber"
+                depends="required">
+                    <arg key="leadForm.contactnumber"/>
+            </field>
+             <field
+                property="area"
+                depends="required">
+                    <arg key="leadForm.area"/>
+            </field>
+            <field
+                property="city"
+                depends="required">
+                    <arg key="leadForm.city"/>
+            </field>
+            <field
+                property="leadsource"
+                depends="required">
+                    <arg key="leadForm.leadsource"/>
+            </field>
+            <field
+                property="packageinfo"
+                depends="required">
+                    <arg key="leadForm.packageinfo"/>
+            </field>
+             <field
+                property="servicetype"
+                depends="required">
+                    <arg key="leadForm.servicetype"/>
+            </field>
+            <field
+                property="dialup"
+                depends="required">
+                    <arg key="leadForm.dialup"/>
+            </field>
+            <field
+                property="broadbandtype"
+                depends="required">
+                    <arg key="leadForm.broadbandtype"/>
+            </field>
+           
+        </form>
+
+    </formset>
+
+
+</form-validation>

@@ -12,7 +12,6 @@
 	
 	$accounts = $smarts_obj->getBRMCurrentMonthSales($csr_id, $from_date, $to_date);
 
-        unset($smarts_obj);
  ?>
  <table width="100%">
  	<tr>

@@ -25,7 +25,7 @@ class DBAccess extends config {
 	  }
 
           public function  __destruct() {
-              $this->DBlink->Disconnect();
+              
           }
       //function to check username and password
       public function CheckUser($table, $fnm, $fval, $fnm1, $fval1)

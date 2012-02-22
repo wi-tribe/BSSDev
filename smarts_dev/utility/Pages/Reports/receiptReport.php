@@ -45,7 +45,8 @@
 		$user = $user[0];
                 $channeltypes = $vouch_obj->getBRMChannelTypes();
                 $users = $vouch_obj->getUserByShop($shop_id,$user['addr_city']);
-	}else{
+	}
+        else{
 		$user = $_USER->getBRMUserDetails($_SESSION['brm_csr_id']);
 		$user = $user[0];
                 if($user['channel_type']!=null)
@@ -203,7 +204,8 @@
 														<option value="<?=$arr['channel_id']?>"><?=$arr['channel_name']?> </option>
 												<?	}	?>
 												</select>
-									<?	} else
+									<?	}
+                                                                        else
 										{	?>
 											<?=$channel_type_name?>
                                                                                         <input type="hidden" name ="channel_type" id="channel_type" value="<?=$user['channel_type']?>">

@@ -41,7 +41,7 @@ class SalesPersonnel
 
 	public function __destruct()
 	{
-            $this->db->Disconnect();
+
 	}
 
     public function startNewSale($sale_info)

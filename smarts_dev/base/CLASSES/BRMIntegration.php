@@ -25,14 +25,7 @@ class BRMIntegration
 	public function __construct()
 	{ 
 		$this->accounting_table = "Wtb_usage";
-//		$tns_name = "(DESCRIPTION =
-//                        (ADDRESS_LIST =
-//                            (ADDRESS = (PROTOCOL = TCP)(HOST = 10.1.67.42)(PORT = 1521))
-//                        )
-//                        (CONNECT_DATA =
-//                           (SERVICE_NAME = BSSPINDB)
-//                        )
-//                      )";
+
                 // RAC PROD TNS
 		$tns_name = "(DESCRIPTION =
                                 (ADDRESS = (PROTOCOL = TCP)(HOST = brm02vip)(PORT = 1521))

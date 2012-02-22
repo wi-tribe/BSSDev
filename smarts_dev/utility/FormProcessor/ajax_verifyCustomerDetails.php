@@ -31,7 +31,6 @@
      }
 
      $log_obj->LogMsg(__CLASS__,__METHOD__, __FILE__,__LINE__,"INFO: ".$_SESSION['username']." Successfuly verified against customer mobile/telephone number ".$Customerno);
-     unset($customer);
 ?>
 <table width="100%">
     <tr>

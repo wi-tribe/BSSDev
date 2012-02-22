@@ -1,0 +1,272 @@
+@charset "utf-8";
+/* CSS Document */
+
+.normalFont{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#1A1819;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.textbox{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	border:1px solid #B30041;
+	color: #c60561;
+}
+
+.textboxGray{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	border:1px solid #7f7f7f;
+	color:#7f7f7f
+}
+.textboxBur{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11.5px;
+	border:1px solid #c60561;
+	color:#c60561
+}
+
+.tdBgColor{
+background-color:#eaeaea;
+}
+
+.mandatoryGreen{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:10px;
+color:#96d234;
+font-weight:bold;
+}
+
+.bigBoldFont{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+color:#B30041;
+font-style: normal;
+font-weight: normal;
+font-weight:bold;
+}
+
+.selectbox{
+
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #5F5D60;
+	width: auto;
+	border: 1px solid #B30041;
+}
+
+.headingFont{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:11pt;
+color:#1A1819;
+font-weight:bold;
+}
+.mandatoryRed{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:10px;
+color:#E17300;
+font-weight:bold;
+}
+
+.button{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#FFFFFF;
+	background-color: #1A1819;
+	border-top-color: #B30041;
+	border-right-color: #B30041;
+	border-bottom-color: #B30041;
+	border-left-color: #B30041;
+}
+
+.tdHeight{
+height:25px;
+}
+
+.rightAlign{
+text-align:right;
+padding-right:5px;
+}
+
+.orangeText {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #E17300;
+	font-weight: normal;
+	text-decoration: none;
+}
+a.orangeText {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #E17300;
+	font-weight: bold;
+	text-decoration: none;
+}
+a.orangeText:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #E17300;
+	font-weight: bold;
+	text-decoration: none
+
+}
+a.orangeText:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #E17300;
+	font-weight: bold;
+	text-decoration: none
+}
+a.orangeText:active {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #E17300;
+	font-weight: bold;
+	text-decoration: none
+}
+
+.whiteHeading{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.middleNav{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #5F5D60;
+	font-weight: bold;
+	text-decoration: none;
+	padding-right: 5px;
+}
+
+.footerText{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #1A1819;
+	font-weight: normal;
+	text-decoration: none;
+	padding-bottom: 5px;
+}
+
+.textarea{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+border:1px solid #B30041;
+color: #5F5D60;
+}
+
+.error {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	color: #B30041;
+}
+.error1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style:normal;
+	font-weight:bold;
+	color:#B30041;
+}
+
+
+.normalBoldFont{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+color:#1A1819;
+font-style: normal;
+font-weight: normal;
+font-weight:bold;
+}
+
+/* new classes */
+
+.dottedLine{
+color:#CCCCCC;
+}
+
+.arabicBigBoldFont{
+font-family:GE_SS_Two_Medium,Verdana, Arial, Helvetica, sans-serif;
+font-size:14px;
+color:#B30041;
+font-style: normal;
+font-weight: normal;
+font-weight:bold;
+}
+
+.normalColoredFont{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+color:#B30041;
+font-style: normal;
+font-weight: normal;
+}
+
+.smallFont{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:9px;
+	color:#1A1819;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.normalGrayFont{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color: #666666;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.contractHeadingFont{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:11pt;
+color:#1A1819;
+font-weight:bold;
+}
+
+.printingBoldFont{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+color:#1A1819;
+font-style: normal;
+font-weight: normal;
+font-weight:bold;
+}
+
+.printingFont{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#1A1819;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.arabicHeadingFont{
+font-family:GE_SS_Two_Medium,Verdana, Arial, Helvetica, sans-serif;
+font-size:11pt;
+color:#1A1819;
+font-weight:bold;
+}
+
+printingArabicFont{
+font-family:GE_SS_Two_Light,Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+color:#1A1819;
+font-style: normal;
+font-weight: normal;
+}
+
+.arabicTitleFont{
+font-family:GE_SS_Two_Medium,Verdana, Arial, Helvetica, sans-serif;
+font-size:20pt;
+font-stretch:wider;
+color:#1A1819;
+font-weight:bold;
+}

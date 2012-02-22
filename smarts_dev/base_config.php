@@ -9,7 +9,7 @@ class base_config {
 	
 	protected $DB_HOST				= "10.1.67.201";
 	protected $DB_NAME				= "pindb";	// database name
-	protected $DB_USER				= "smarts";// database user
+	protected $DB_USER				= "smarts2";// database user
 	protected $DB_PASSWORD                          = "smarts321";// database user's password
 	protected $DB_PORT				= "1522";
 	protected $DB_TYPE				= "oci8";

@@ -9,7 +9,6 @@ include_once(CLASSDIR."/Voucher.php");
 
 $voucher_obj = new Voucher();
 
-
 $shop = $_POST['shop'];
 $serial_search['serial_search_start'] = $_POST['serial_search_start'];
 $serial_search['serial_search_end'] = $_POST['serial_search_end'];

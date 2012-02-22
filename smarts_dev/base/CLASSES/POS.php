@@ -110,8 +110,7 @@ Class POS
    			return false;
    		}*/
    		
-   		if(!($voucherIDs=$vouchers->validateSerialOwner($_SESSION['user_id'],$_SESSION['channel_id'],
-   		$vouchSerials)))
+   		if(!($voucherIDs=$vouchers->validateSerialOwner($_SESSION['user_id'],$_SESSION['channel_id'],$vouchSerials)))
    		{
    			$this->LastMsg=$vouchers->LastMsg;
    			return false;

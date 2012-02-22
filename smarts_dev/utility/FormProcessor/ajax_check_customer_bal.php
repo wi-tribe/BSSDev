@@ -21,13 +21,20 @@
 	//$MAC = trim($_POST['MAC']);
 
 	$TnsName = "(DESCRIPTION =
-    (ADDRESS_LIST =
-      (ADDRESS = (PROTOCOL = TCP)(HOST = 10.1.67.33)(PORT = 1521))
-    )
-    (CONNECT_DATA =
-      (SERVICE_NAME = BSSPINDB)
-    )
-  )
+                                            (ADDRESS = (PROTOCOL = TCP)(HOST = brm02vip)(PORT = 1521))
+                                            (ADDRESS = (PROTOCOL = TCP)(HOST = brm03vip)(PORT = 1521))
+                                            (LOAD_BALANCE = yes)
+                                            (CONNECT_DATA =
+                                              (SERVER = DEDICATED)
+                                              (SERVICE_NAME = bsspindb)
+                                              (FAILOVER_MODE =
+                                                (TYPE = SELECT)
+                                                (METHOD = BASIC)
+                                                (RETRIES = 180)
+                                                (DELAY = 5)
+                                              )
+                                            )
+                                          )
 ";
 
  
