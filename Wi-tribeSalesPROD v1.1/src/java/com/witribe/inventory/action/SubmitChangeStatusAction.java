@@ -59,7 +59,11 @@ public class SubmitChangeStatusAction extends BaseAction {
        req.setAttribute(WitribeConstants.ERROR_STRING,WitribeConstants.CHANGE_STATUS_FAILED);
        return mapping.findForward("failure") ;
     }
+     /*
+      * Changed BY: PKAasimN
+      */
     boolean changeInvStatus(DistributeInventoryForm dform,HttpServletRequest req)throws SQLException,Exception{
+         
         HttpSession userSession =  (HttpSession)req.getSession(true);
         String salesid=(String)userSession.getAttribute(WitribeConstants.SALES_ID);
         DistributeInventoryVO objInventoryVO = new DistributeInventoryVO();
@@ -69,7 +73,8 @@ public class SubmitChangeStatusAction extends BaseAction {
         objInventoryVO.setInventoryIdArray(dform.getInventoryId());
         objInventoryVO.setSalesId(salesid);
         objInventoryVO.setAssignedTo(dform.getAssignedTo());
-        
+
+       
         objInventoryVO.setChangeStatus(dform.getChangeStatus());
      	if (objInventoryVO.getChangeStatus().equals("1")) {
       			 objInventoryVO.setAssignedTo("");
