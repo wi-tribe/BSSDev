@@ -407,6 +407,25 @@ public class WitribeInventoryBO {
         }
         return objList;
     }
+    
+ /* public List getSpecificTypeInv(RaiseRequestVO reqVO)throws Exception{
+        List objList = new ArrayList();
+        RaiseRequestDAO requestDAO = new RaiseRequestDAO();
+        Connection con = null;
+        try{
+            con = DBUtil.getConnection();
+            objList = requestDAO.getSpecificTypeInv(con,reqVO);
+        }catch(SQLException se){
+            DBUtil.closeConnection(con);
+            throw se;
+        } catch(Exception e){
+            DBUtil.closeConnection(con);
+            throw e;
+        } finally{
+            DBUtil.closeConnection(con);
+        }
+        return objList;
+    }*/
         public List fetchAssignedSales(String shopid,String salesid) throws SQLException,Exception{
 
         List objList = null;
@@ -455,7 +474,8 @@ public class WitribeInventoryBO {
         try{
             brmcon = DBUtil.getBRMConnection();
             con = DBUtil.getConnection();
-            
+            //con = DBUtil.getConnection();
+            //made DB as BRM for inventory.
             status = objRequestDAO.ReturnRequest(objInventoryVO, brmcon,SalesPersonId,con);
             if(status) {
                 // statusList = SendMailSms(WitribeConstants.MAIL_SUBJECT_REQ2,WitribeConstants.MAIL_BODY_REQ2);
@@ -476,7 +496,7 @@ public class WitribeInventoryBO {
 
     public List getMinMaxLevel(RaiseRequestVO objReq)throws Exception{
          RaiseRequestDAO requestDAO = new RaiseRequestDAO();
-         
+         //RaiseRequestVO objReqVO = null;
          List objListShop = null;
         Connection con = null;
         try{
@@ -503,7 +523,7 @@ public class WitribeInventoryBO {
         try{
             brmcon = DBUtil.getBRMConnection();
             con = DBUtil.getConnection();
-           
+            //con = DBUtil.getConnection();
             status = objRequestDAO.transferRequest(objInventoryVO, brmcon,con);
             if(status) {
                 //  statusList = SendMailSms(WitribeConstants.MAIL_SUBJECT_REQ2,WitribeConstants.MAIL_BODY_REQ2);
@@ -529,7 +549,9 @@ public class WitribeInventoryBO {
         try{
             con = DBUtil.getBRMConnection();
             status = objRequestDAO.changeInvStatus(objInventoryVO, con);
-           
+            /*if(!assignCSE(objLeadVO,con)){
+              assignTL(objLeadVO,con); }
+             sendMail()*/
         }catch(SQLException se){
             DBUtil.closeConnection(con);
             throw se;
@@ -548,7 +570,9 @@ public class WitribeInventoryBO {
         try{
             con = DBUtil.getBRMConnection();
             status = objRequestDAO.mailSendingRequest(con,reqVO);
-         
+            /*if(!assignCSE(objLeadVO,con)){
+              assignTL(objLeadVO,con); }
+             sendMail()*/
         }catch(SQLException se){
            DBUtil.closeConnection(con);
             throw se;
@@ -589,7 +613,9 @@ public class WitribeInventoryBO {
                 status = objRequestDAO.transferRequest(objInventoryVO,con,salescon);
                 
             }
-          
+            /*if(!assignCSE(objLeadVO,con)){
+              assignTL(objLeadVO,con); }
+             sendMail()*/
         }catch(SQLException se){
             con.rollback();
             salescon.rollback();

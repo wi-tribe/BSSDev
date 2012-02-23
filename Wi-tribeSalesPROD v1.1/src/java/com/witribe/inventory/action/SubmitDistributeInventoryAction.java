@@ -58,10 +58,6 @@ public class SubmitDistributeInventoryAction extends BaseAction {
        req.setAttribute(WitribeConstants.HEADING,WitribeConstants.FAILED_INSERT_DISTRIBUTE_INVENTORY);
        return mapping.findForward("failure") ;
     }
-    /*
-     * Changed By:PKAasimN
-     *
-     */
     boolean distributeRequest(DistributeInventoryForm dform,HttpServletRequest req)throws SQLException,Exception{
         HttpSession userSession =  (HttpSession)req.getSession(true);
         String salesid=(String)userSession.getAttribute(WitribeConstants.SALES_ID);

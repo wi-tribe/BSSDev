@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Properties;
 
 import play.mvc.Scope.Session;
+import play.cache.Cache;
 
 import com.portal.bas.PCachedContext;
 import com.portal.bas.PControllerImpl;
@@ -104,6 +105,8 @@ import com.wtb.flds.WtbFldProfileId;
 import com.wtb.flds.WtbFldSalesId;
 import com.wtb.flds.WtbFldSubType;
 import com.wtb.flds.WtbFldSvcInfo;
+import com.portal.app.ccare.comp.LoggedInUsrInfoBean;
+import com.portal.pcm.fields.FldAacSource;
 
 public class AccountUtilities extends PControllerImpl {
 
@@ -1093,27 +1096,30 @@ public class AccountUtilities extends PControllerImpl {
         return "";
     }
     
-    public static String addOrRemoveDevice(Poid accountPoid, Poid devicePoid, String action, String salesID, String resonCode, Session session, String subType) throws RemoteException, EBufException {
+    public static boolean addOrRemoveDevice(Poid accountPoid, Poid devicePoid, String action, String salesID,String Source, String resonCode, Session session, String subType) throws RemoteException, EBufException {
         try {
-            FList i = new FList();
             FList inputFlist = new FList();
             inputFlist.set(FldPoid.getInst(), accountPoid);
             inputFlist.set(FldDeviceObj.getInst(), devicePoid);
             inputFlist.set(FldProgramName.getInst(), "REPLACE");
             inputFlist.set(WtbFldSubType.getInst(), subType);
             inputFlist.set(WtbFldSalesId.getInst(), salesID);
-            inputFlist.set(FldSource.getInst(), "TESTING");
+            inputFlist.set(FldSource.getInst(), Source);
             inputFlist.set(FldReasonCode.getInst(), resonCode);
             inputFlist.set(FldAction.getInst(), action);
             inputFlist.set(FldFlags.getInst(), 0);
-            
             inputFlist.dump();
             System.out.println("addOrRemove inFLIST \n"+inputFlist);
-            ExecuteOpcode.execute(100058,i,session);
-        } catch (RemoteException e) {
-			// TODO: handle exception
+            ExecuteOpcode.execute(100058,inputFlist,session);
+         }
+        catch (RemoteException e) {
+			return false;
 		}
-        return "";
+        catch(Exception Ex)
+        {
+            return false;
+        }
+        return true;
     }
     
     public static List<Accounts> searchCustomer(String accountNo, String fName, String lName, String serviceID, String mac, String cnic, String mobileNo, Session session) throws RemoteException, EBufException {
@@ -1500,6 +1506,49 @@ public class AccountUtilities extends PControllerImpl {
 
     return output;
 
+    }
+
+     /* getLoggedInUserID
+     * PKAasimN
+     */
+
+    public String getLoggedInCSRID(Session session) throws RemoteException
+    {
+        String CSRID = "";
+        String Source="";
+        FList out = null;
+        
+        //LoggedInUsrInfoBean CSRInfo = new LoggedInUsrInfoBean();
+
+        //Getting SaleID of loggedin User
+        FList InFlist = new FList();
+        Poid UsrAcc = Poid.valueOf(session.get("LogInUsrAccID"));
+        InFlist.set(FldPoid.getInst(), UsrAcc);
+        System.out.println("/n In Flist of LoggedInUser"+InFlist.toString()+"/n");
+        try{
+        out = ExecuteOpcode.execute(3, InFlist, session);
+        //out.elements();
+        System.out.println("<br> Out Flist of LoggedInUser"+out.toString()+"<br>");
+        CSRID = out.get(FldAccessCode1.getInst()).toString();
+        Source = out.get(FldAacSource.getInst()).toString();
+        System.out.println("Source is"+Source);
+        //CSRInfo.setCSRID(out.get(FldAccessCode1.getInst()).toString());
+       // CSRInfo.setSource(out.get(FldSource.getInst()).toString());
+
+       // Cache.set(session.getId()+"CSRInfo", CSRInfo);
+        
+        } catch(EBufException ebuf)
+        {
+            
+        }
+        catch(RemoteException e)
+        {
+
+        }
+        session.put("salesId", CSRID);
+        session.put("source",Source);
+
+        return CSRID;
     }
     
     public List<Payments> getLastPayment(Poid accountPoid, Session session, int size) throws RemoteException {

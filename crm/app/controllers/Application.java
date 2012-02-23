@@ -163,8 +163,10 @@ public class Application extends Controller {
 
 			Poid servicePoid = new Poid(db, -1L, service);
 			input.set(FldPoid.getInst(), servicePoid);
+                        System.out.println("\n input FList of Authentication \n"+input+"\n");
 			FList output = ctx.opcode(158, input);
 
+                        System.out.println("\n output FList of Authentication \n"+output+"\n");
 			checkVerifyError(output);
 			servicePoid = output.get(FldPoid.getInst());
 			Poid accountPoid = output.get(FldAccountObj.getInst());
@@ -189,10 +191,18 @@ public class Application extends Controller {
 				flash.put("email", user);
 				login();
 			}
+                        System.out.println("\n AccountPoid is "+accountPoid.toString()+"\n");
+
 			PModelHandle mService = ctx.createModelFrom(servicePoid);
 			PModelHandle mAccount = ctx.createModelFrom(accountPoid);
-			Cache.set(session.getId() + "AccountModel", mAccount);
+			Cache.set(session.getId() + "AccountModel", mAccount);                        
 			Cache.set(session.getId() + "ServiceModel", mService);
+
+                       // AccountUtilities AccUtill = new AccountUtilities();
+                        //AccUtill.getLoggedInCSRID(session);
+                        
+                        System.out.println("\n mAccount Model is "+mAccount.toString()+"\n");
+                        session.put("LogInUsrAccID", accountPoid);
 		} catch (EBufException e) {
 			e.printStackTrace();
 		} catch (RemoteException ex) {

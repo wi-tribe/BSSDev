@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/C:/Play/samples-and-tests/crm/conf/routes</file>
+        <file>file:/C:/Play/samples-and-tests/crm/app/controllers/Application.java</file>
         <file>file:/C:/Play/samples-and-tests/crm/app/controllers/SearchCustomer.java</file>
-        <file>file:/C:/Play/samples-and-tests/crm/app/views/SearchCustomer/index.html</file>
-        <file>file:/C:/Play/samples-and-tests/crm/app/views/SearchCustomer/Details.html</file>
     </open-files>
 </project-private>

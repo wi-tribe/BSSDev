@@ -25,15 +25,20 @@ import com.portal.bas.PModelHandle;
 import com.portal.pcm.EBufException;
 import com.portal.pcm.Poid;
 import com.portal.pcm.SparseArray;
+import com.portal.pcm.fields.FldDeviceId;
+import com.portal.pcm.fields.FldManufacturer;
+import com.portal.pcm.fields.FldModel;
 import com.portal.pcm.fields.FldPoid;
 import com.portal.pcm.fields.FldResults;
+import com.portal.pcm.fields.FldSource;
 import com.portal.web.comp.PProductsBeanP;
 import com.portal.web.comp.PProductsBeanPImpl;
 import com.portal.web.comp.PServicesBeamPImpl;
 import com.portal.web.comp.ProductP;
 import com.wtb.flds.WtbFldCpeDetails;
 import com.wtb.flds.WtbFldSubType;
-import java.util.logging.Logger;
+import play.cache.Cache;
+import com.portal.app.ccare.comp.LoggedInUsrInfoBean;
 
 /**
  * Courses controller
@@ -334,18 +339,39 @@ public class SearchCustomer extends Controller {
 	 */
 	public static void deviceChange(String AccountID,String MAC)
 	{
-            System.out.println("MAC Is"+MAC);
-            MAC = MAC.trim();
             String DeviceSerial=null;
             String Model = null;
             String Make=null;
             String Source=null;
+            FList details = null;
             try{
-                AccountUtilities myUtil = new AccountUtilities();
-                //myUtil.getMacDetails(MAC,session);
+                if(!MAC.isEmpty())
+                {
+                    AccountUtilities myUtil = new AccountUtilities();
+                    MAC = MAC.trim();
+                    System.out.println("calling getMAC Details in deviceChange");
+                    details = myUtil.getMacDetails(MAC,session);
+                    if(details.hasField(FldResults.getInst()))
+                    {
+                        System.out.println("result of getMAC Details in deviceChange");
+                        SparseArray resultsArray = details.get(FldResults.getInst());
+                        if(resultsArray != null)
+                        {
+                            System.out.println("result2 of getMAC Details in deviceChange");
+                            FList resFList = resultsArray.getAnyElement();
+                            DeviceSerial = resFList.get(FldDeviceId.getInst());
+                            Model = resFList.get(FldModel.getInst());
+                            Make = resFList.get(FldManufacturer.getInst());
+                            Source = resFList.get(FldSource.getInst());
+                            SparseArray CpeDetails = resFList.get(WtbFldCpeDetails.getInst());
+
+                        }
+                    }
+                }
             }
             catch(Exception e)
             {
+                flash.error("Please correct MAC Address");
             }
             render(AccountID, DeviceSerial,MAC,Model,Make,Source);
         }
@@ -354,48 +380,68 @@ public class SearchCustomer extends Controller {
         {
             String accno = params.get("accountNo", String.class);
             String macId = params.get("mac", String.class);
-            String reason= params.get("Removalreason",String.class);
-            String action= null;
-            String AddOp = params.get("Add",String.class);
-            String RemoveOp = params.get("Remove",String.class);
-            if(AddOp!=null)
-            {
-                 action = "1";
-            }
-            else if(RemoveOp!=null)
-            {
-                 action = "2";
-            }
-            System.out.println("Param Is acc: "+accno);
-            System.out.println("Param Is mac: "+macId);
-            System.out.println("Param Is reason: "+reason);
-            System.out.println("Action is "+action);
+            String reason = params.get("Removalreason", String.class);
+            String action = null;
+            String AddOp = params.get("Add", String.class);
+            String RemoveOp = params.get("Remove", String.class);
+            
+        if (AddOp != null) {
+            action = "1";
+            reason = "";
+        }
+        if (RemoveOp != null) {
+            action = "2";
+        }
+       
+        if (!macId.isEmpty()) {
             FList Result = new FList();
-            try{
+            try {
                 macId = macId.trim();
                 AccountUtilities myUtil = new AccountUtilities();
                 Result = myUtil.getMacDetails(macId, session);
+                if (Result.hasField(FldResults.getInst())) {
+                    System.out.println("Returned FList Is" + Result.toString());
+                    Poid accountPoid = Poid.valueOf("0.0.0.1 /account " + accno);
 
-                System.out.println("Returned FList Is"+Result.toString());
-                Poid accountPoid = Poid.valueOf("0.0.0.1 /account " + accno);
+                    SparseArray ResArray = Result.get(FldResults.getInst());
+                    FList fldRes = ResArray.getAnyElement();
 
-                SparseArray ResArray = Result.get(FldResults.getInst());
-                FList fldRes = ResArray.getAnyElement();
+                    FList fldResult = Result.get(FldResults.getInst()).elementAt(0);
+                    Poid devicePoid = fldRes.get(FldPoid.getInst());
 
-                FList fldResult = Result.get(FldResults.getInst()).elementAt(0);
-                Poid devicePoid = fldRes.get(FldPoid.getInst());
+                    SparseArray CpeDetail = fldResult.get(WtbFldCpeDetails.getInst());
+                    FList CpeDetails = CpeDetail.getAnyElement();
+                    String Subtype = CpeDetails.get(WtbFldSubType.getInst()).toString();
 
-                SparseArray CpeDetail = fldResult.get(WtbFldCpeDetails.getInst());
-                FList CpeDetails = CpeDetail.getAnyElement();
-                String Subtype = CpeDetails.get(WtbFldSubType.getInst()).toString();
-                System.out.println("Subtype is:"+ CpeDetails.get(WtbFldSubType.getInst()));
-                System.out.println("device Poid is:"+fldRes.get(FldPoid.getInst()));
-                myUtil.addOrRemoveDevice(accountPoid,devicePoid,action,"702",reason,session,Subtype);
+                    //LoggedInUsrInfoBean CSRInfo = (LoggedInUsrInfoBean) Cache.get(session.getId() + "CSRInfo");
+                    String csrID = myUtil.getLoggedInCSRID(session);
+                    session.get("source");
+
+                    //System.out.println("CSR As per func"+csrID+" "+"CSR /Obj"+CSRInfo.getCSRID());
+                    boolean result = myUtil.addOrRemoveDevice(accountPoid, devicePoid, action, csrID,session.get("source"), reason, session, Subtype);
+
+                    if (result) {
+                        flash.success("Device Add/Remove Operation Successful");
+                    } else {
+                        flash.error("Device Add/Remove Operation Failed");
+                    }
+                }
+                else
+                {
+                    flash.error("No Details Available against MAC");
+                }
+
+            } catch (Exception e) {
+                flash.error("Please check provided MAC Address");
             }
-            catch(Exception e)
-            {
-            }
-
-            render();
+            session.put("accountnumber", accno);
+            details(null);
         }
+        else
+        {
+            flash.error("Please provide Device MAC");
+            session.put("accountnumber", accno);
+            details(null);
+        }
+    }
 }
